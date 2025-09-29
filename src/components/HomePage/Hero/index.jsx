@@ -67,7 +67,7 @@ const Hero = () => {
               textAnchor="middle"
             >
               <textPath href="#curve" startOffset="50%">
-                TELFORD'S
+                TELFORD&rsquo;S
               </textPath>
             </text>
 

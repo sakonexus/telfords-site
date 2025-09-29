@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
 @import 'tailwindcss';
 
 @tailwind utilities;
@@ -11,6 +12,7 @@
   --font-Bodina-Moda-SC: 'Bodina Moda SC', serif;
   --font-Baskerville: Baskervville, serif;
   --font-Lora: Lora, serif;
+  --font-MonteCarlo: 'MonteCarlo', cursive;
 
   --breakpoint-xxs: 320px;
   --breakpoint-xs: 360px;
@@ -18,9 +20,6 @@
 }
 
 p,
-h1,
-h2,
-h3,
 a,
 span {
   @apply font-Lora tracking-wide;

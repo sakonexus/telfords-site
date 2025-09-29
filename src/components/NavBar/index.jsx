@@ -13,7 +13,7 @@ const Navbar = ({ transparent = false }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[999] transition-colors duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[999] md:absolute transition-colors duration-300 ${
         transparent ? 'bg-transparent' : 'bg-white text-gray-800 shadow-md'
       }`}
     >
