@@ -10,18 +10,18 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1756142754703-1c24f2d1fe9a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Slide 1',
+      src: '/i/hero-slider/xikar-cigar.JPG',
+      alt: 'Cigar',
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1646926551564-8d0444541d78?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Slide 2',
+      src: '/i/hero-slider/storefront-view.JPG',
+      alt: 'Storefront',
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1601040629814-2d86fbbcd14d?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Slide 3',
+      src: '/i/hero-slider/pipe-wall.JPG',
+      alt: 'Wall of pipes',
     },
   ];
 
