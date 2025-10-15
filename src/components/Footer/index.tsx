@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-neutral-900 text-neutral-200 py-10 px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8">
-        <div className="text-center md:text-left">
+        <div className="flex flex-col text-center md:text-left">
           <h2 className="text-xl font-semibold text-white font-Baskerville">
             Telford&#8217;s Pipe & Cigar, Inc.
           </h2>

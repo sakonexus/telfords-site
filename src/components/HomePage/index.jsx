@@ -56,24 +56,24 @@ const HomePage = () => {
       <Hero />
       <ContactModule />
       <div className="flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center w-full md:w-3/4 pt-12">
+        <section className="flex justify-center items-center w-full md:w-3/4 pt-12">
           <TwoColumn
             module1={LoungeModule1}
             module2={LoungeModule2}
             dir="ltr"
             containerClasses=""
           />
-        </div>
-        <div className="flex justify-center items-center w-full md:w-3/4 pt-18 px-4">
+        </section>
+        <section className="flex justify-center items-center w-full md:w-3/4 pt-18 px-4">
           <TwoColumn
             module1={SelectionModule1}
             module2={SelectionModule2}
             dir="rtl"
             containerClasses=""
           />
-        </div>
+        </section>
       </div>
-      <div className="flex w-full flex-col justify-center items-center mt-12 py-12 bg-slate-100">
+      <section className="flex w-full flex-col justify-center items-center mt-12 py-12 bg-slate-100">
         <div className="w-full md:w-3/4">
           <h2 className="font-MonteCarlo text-6xl px-4">
             First class experience
@@ -84,7 +84,7 @@ const HomePage = () => {
             <OfferingsModule />
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

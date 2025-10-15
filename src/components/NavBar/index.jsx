@@ -1,8 +1,29 @@
-import { useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useState, useEffect } from 'react';
+import {
+  Bars3Icon,
+  XMarkIcon,
+  PhoneIcon,
+  BuildingStorefrontIcon,
+} from '@heroicons/react/24/outline';
 
-const Navbar = ({ transparent = false }) => {
+const Navbar = ({ homePage = false }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [sections, setSections] = useState({});
+
+  useEffect(() => {
+    const handleSection = (e) => {
+      const { id, visible } = e.detail;
+      setSections((prev) => ({ ...prev, [id]: visible }));
+    };
+
+    window.addEventListener('sectionVisible', handleSection);
+
+    return () => {
+      window.removeEventListener('sectionVisible', handleSection);
+    };
+  }, []);
+
+  const heroVisible = sections['hero'] ?? true;
 
   const links = [
     { name: 'Home', href: '/' },
@@ -14,13 +35,39 @@ const Navbar = ({ transparent = false }) => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-[99] md:absolute transition-colors duration-300 ${
-        transparent ? 'bg-transparent' : 'bg-white text-gray-800 shadow-md'
+        homePage && heroVisible === true
+          ? 'bg-transparent'
+          : 'bg-white text-gray-800 shadow-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <div
+        className={`${heroVisible === true ? 'p-4' : 'px-4 py-1'} ${
+          homePage ? 'items-center' : 'items-end'
+        } max-w-7xl mx-auto flex justify-between transition-all duration-300`}
+      >
         {/* Logo */}
-        <div className="">
-          <img src="/Telfords-Character-Logo.png" className="md:w-28 w-20" />
+        <div className="flex flex-row justify-center items-end">
+          <a href="/">
+            <img
+              src="/Telfords-Character-Logo.png"
+              className={`${
+                heroVisible === true && homePage === true
+                  ? 'md:w-28 w-20'
+                  : 'md:w-20 w-12'
+              } transition-all`}
+            />
+          </a>
+          <div
+            className={`${
+              heroVisible === true && homePage === true
+                ? 'opacity-0'
+                : 'opacity-100'
+            } ml-2 transition-opacity duration-300`}
+          >
+            <p className="font-Baskerville text-lg">
+              Telford&#8217;s Pipe & Cigar, inc.
+            </p>
+          </div>
         </div>
 
         {/* Desktop Menu */}
@@ -29,7 +76,9 @@ const Navbar = ({ transparent = false }) => {
             <a
               key={link.name}
               href={link.href}
-              className="text-white text-2xl tracking-wider hover:text-blue-500 transition-colors font-Bodina-Moda-SC"
+              className={`${
+                homePage ? 'text-white' : 'text-slate-800'
+              } text-2xl tracking-wider hover:text-blue-500 transition-colors font-Bodina-Moda-SC`}
             >
               {link.name}
             </a>
@@ -43,7 +92,11 @@ const Navbar = ({ transparent = false }) => {
           aria-label="Toggle menu"
         >
           <Bars3Icon
-            className={`h-8 w-8 stroke-white transition-opacity duration-300 ${
+            className={`${
+              heroVisible === true && homePage === true
+                ? 'stroke-white'
+                : 'stroke-slate-600'
+            } h-8 w-8  transition-all duration-300 ${
               isOpen ? 'opacity-0' : 'opacity-100'
             }`}
           />
@@ -80,27 +133,23 @@ const Navbar = ({ transparent = false }) => {
             </nav>
           </div>
           <div className="flex flex-col pb-10 space-y-8 px-6">
-            <div>
-              <p className="font-Bodina-Moda-SC text-xl text-gray-800 leading-1 tracking-wide">
-                Phone:
-              </p>
-              <br />
+            <div className="flex flex-row items-baseline justify-start gap-x-2">
+              <PhoneIcon className="w-6 fill-slate-800 stroke-slate-800" />
               <a
                 href="tel:14153880440"
-                className="font-Bodina-Moda-SC text-[1.4rem] text-gray-800 leading-1 tracking-wide underline"
+                className="font-Bodina-Moda-SC text-xl text-gray-800 leading-1 tracking- pt-6"
               >
                 415-388-0440
               </a>
             </div>
-            <div className="border-t-gray-300 border-t pt-8">
-              <p className="font-Bodina-Moda-SC text-xl text-gray-800 leading-1 tracking-wide">
-                Address:
-              </p>
-              <br />
+            <div className="flex flex-row justify-baseline items-start border-t-gray-300 border-t pt-8">
+              <span>
+                <BuildingStorefrontIcon className="w-6 fill-slate-800 stroke-slate-800" />
+              </span>
               <a
                 target="_blank"
                 href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
-                className="font-Bodina-Moda-SC text-lg text-gray-800 leading-1 tracking-wide underline"
+                className="font-Bodina-Moda-SC text-lg text-gray-800 tracking-wide ml-2"
               >
                 664 Redwood Highway Frontage Rd, Mill Valley, CA 94941
               </a>

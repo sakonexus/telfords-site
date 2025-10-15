@@ -11,8 +11,8 @@ import Footer from '@components/Footer';
     <link rel="icon" type="image/x-icon" href="/favicon.jpg">
   </head>
   <body class="w-full">
-    <NavBar client:load transparent={Astro.url.pathname === "/"} />
-    <main class={`${Astro.url.pathname === "/" ? '' : 'pt-36'}`}>
+    <NavBar client:load homePage={Astro.url.pathname === "/"} />
+    <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16'}`}>
       <slot />
       <Footer />
     </main>

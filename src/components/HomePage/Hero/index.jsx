@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -7,6 +7,26 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const Hero = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Emit a custom event with section ID and visibility
+        window.dispatchEvent(
+          new CustomEvent('sectionVisible', {
+            detail: { id: 'hero', visible: entry.isIntersecting },
+          })
+        );
+      },
+      { threshold: 0.1 } // Trigger when 0% visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const slides = [
     {
       id: 1,
@@ -26,7 +46,10 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative w-full h-[100vh] xxs:max-h-[50vh] xs:max-h-[60vh] sm:max-h-[80vh]">
+    <div
+      ref={ref}
+      className="relative w-full h-[100vh] xxs:max-h-[50vh] xs:max-h-[60vh] sm:max-h-[80vh]"
+    >
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: true }}
