@@ -36,7 +36,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div className="fixed inset-0 z-[111] flex items-center justify-center bg-black/50 backdrop-blur-sm flex-col">
-      <div className="w-full sm:w-3/4 flex justify-end py-4 px-4 md:px-0 bg-white md:bg-transparent">
+      <div className="w-full sm:w-3/4 flex justify-end py-4 px-4 md:px-0 bg-cream md:bg-transparent">
         <button
           onClick={onClose}
           className="z-[99] hover:cursor-pointer transition-all hover:bg-slate-200 durtation-300 rounded-full p-1"
@@ -49,7 +49,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         className="
           rounded-none sm:rounded-2xl 
           w-full h-full sm:w-3/4 sm:h-auto 
-          shadow-xl overflow-auto bg-white p-0 md:p-6
+          shadow-xl overflow-auto bg-cream p-0 md:p-6
         "
       >
         <div className="relative flex items-stretch h-full justify-center">

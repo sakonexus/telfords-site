@@ -73,7 +73,7 @@ const HomePage = () => {
           />
         </section>
       </div>
-      <section className="flex w-full flex-col justify-center items-center mt-12 py-12 bg-slate-100">
+      <section className="flex w-full flex-col justify-center items-center mt-12 py-12 bg-section">
         <div className="w-full md:w-3/4">
           <h2 className="font-MonteCarlo text-6xl px-4">
             First class experience

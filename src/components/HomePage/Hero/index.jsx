@@ -85,7 +85,7 @@ const Hero = () => {
               transform="translate(0,100)"
             />
             <text
-              className="font-DM-Serif text-[10rem]"
+              className="font-DM-Serif text-[10rem] fill-[var(--color-cream)]"
               fill="white"
               textAnchor="middle"
             >
@@ -100,7 +100,7 @@ const Hero = () => {
               fill="white"
               fontSize="58"
               textAnchor="middle"
-              className="text-7xl font-Baskerville"
+              className="text-7xl font-Baskerville fill-[var(--color-cream)]"
             >
               Pipe & Cigar, <tspan fontSize="46">inc.</tspan>
             </text>
@@ -110,7 +110,7 @@ const Hero = () => {
               fill="white"
               fontSize="22"
               textAnchor="middle"
-              className="text-5xl font-Baskerville"
+              className="text-5xl font-Baskerville fill-[var(--color-cream)]"
             >
               Est. 1970
             </text>

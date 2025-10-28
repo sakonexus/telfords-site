@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-neutral-900 text-neutral-200 py-10 px-4">
+    <footer className="w-full bg-neutral-900 py-10 px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8">
         <div className="flex flex-col text-center md:text-left">
-          <h2 className="text-xl font-semibold text-white font-Baskerville">
+          <p className="text-xl font-semibold text-text-muted font-Baskerville">
             Telford&#8217;s Pipe & Cigar, Inc.
-          </h2>
-          <p className="text-sm text-neutral-400 mt-2 font-Baskerville tracking-wide leading-relaxed">
+          </p>
+          <p className="text-sm text-text-muted mt-2 font-Baskerville tracking-wide leading-relaxed">
             Marin County's largest tobacco provider <br />
             for over 30&nbsp;years
           </p>
@@ -16,16 +16,28 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
-          <a href="#" className="hover:text-white transition-colors">
+          <a
+            href="#"
+            className="text-text-muted hover:text-hover-cream transition-colors"
+          >
             Home
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a
+            href="#"
+            className="text-text-muted hover:text-hover-cream transition-colors"
+          >
             About
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a
+            href="#"
+            className="text-text-muted hover:text-hover-cream transition-colors"
+          >
             Services
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a
+            href="#"
+            className="text-text-muted hover:text-hover-cream transition-colors"
+          >
             Contact
           </a>
         </nav>
@@ -38,10 +50,9 @@ const Footer = () => {
             aria-label="Facebook"
           >
             <svg
-              className="fill-white w-8"
+              className="fill-cream w-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 640 640"
-              color="#FFFFFF"
             >
               <path d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z" />
             </svg>
@@ -50,10 +61,9 @@ const Footer = () => {
             href="https://www.instagram.com/telfordspipeandcigar/"
             className="hover:text-white transition-transform transform hover:scale-110"
             aria-label="Instagram"
-            color="#FFFFFF"
           >
             <svg
-              className="fill-white w-8"
+              className="fill-cream w-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 640 640"
             >
@@ -64,10 +74,12 @@ const Footer = () => {
       </div>
 
       {/* Bottom Line */}
-      <div className="mt-10 border-t border-neutral-800 pt-4 text-center text-sm text-neutral-500">
-        © {new Date().getFullYear()} Telford&#8217;s Pipe & Cigar, Inc.
-        <br />
-        All rights reserved.
+      <div className="mt-10 border-t border-neutral-800 pt-4 text-center text-sm text-text-muted">
+        <p>
+          © {new Date().getFullYear()} Telford&#8217;s Pipe & Cigar, Inc.
+          <br />
+          All rights reserved.
+        </p>
       </div>
     </footer>
   );

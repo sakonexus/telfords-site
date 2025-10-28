@@ -27,8 +27,8 @@ const Navbar = ({ homePage = false }) => {
 
   const links = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { name: 'Our Story', href: '/about' },
+    { name: 'Products', href: '/services' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -37,7 +37,7 @@ const Navbar = ({ homePage = false }) => {
       className={`fixed top-0 left-0 w-full z-[99] md:absolute transition-colors duration-300 ${
         homePage && heroVisible === true
           ? 'bg-transparent'
-          : 'bg-white text-gray-800 shadow-md'
+          : 'bg-cream text-gray-800 shadow-md'
       }`}
     >
       <div
@@ -77,8 +77,10 @@ const Navbar = ({ homePage = false }) => {
               key={link.name}
               href={link.href}
               className={`${
-                homePage ? 'text-white' : 'text-slate-800'
-              } text-2xl tracking-wider hover:text-blue-500 transition-colors font-Bodina-Moda-SC`}
+                homePage
+                  ? 'text-cream hover:text-hover-cream'
+                  : 'text-text-primary hover:text-text-muted'
+              } text-2xl tracking-wider  transition-colors font-Bodina-Moda-SC`}
             >
               {link.name}
             </a>
@@ -94,8 +96,8 @@ const Navbar = ({ homePage = false }) => {
           <Bars3Icon
             className={`${
               heroVisible === true && homePage === true
-                ? 'stroke-white'
-                : 'stroke-slate-600'
+                ? 'stroke-cream'
+                : 'stroke-text-muted'
             } h-8 w-8  transition-all duration-300 ${
               isOpen ? 'opacity-0' : 'opacity-100'
             }`}
@@ -105,18 +107,18 @@ const Navbar = ({ homePage = false }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-cream shadow-lg transform transition-transform duration-300 md:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col justify-between h-full">
           <div>
             <div className="flex justify-between p-4 items-baseline">
-              <p className="font-Bodina-Moda-SC text-2xl text-gray-500 pl-2">
+              <p className="font-Bodina-Moda-SC text-2xl text-text-secondary pl-2">
                 Menu
               </p>
               <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-                <XMarkIcon className="h-8 w-8 stroke-gray-700" />
+                <XMarkIcon className="h-8 w-8 stroke-text-muted" />
               </button>
             </div>
             <nav className="flex flex-col space-y-8 p-6">
@@ -124,7 +126,7 @@ const Navbar = ({ homePage = false }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-gray-800 transition-colors font-Bodina-Moda-SC text-2xl border-t-gray-300 border-t pt-4"
+                  className="text-text-primary transition-colors font-Bodina-Moda-SC text-2xl border-t-gray-300 border-t pt-4"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -134,22 +136,22 @@ const Navbar = ({ homePage = false }) => {
           </div>
           <div className="flex flex-col pb-10 space-y-8 px-6">
             <div className="flex flex-row items-baseline justify-start gap-x-2">
-              <PhoneIcon className="w-6 fill-slate-800 stroke-slate-800" />
+              <PhoneIcon className="w-6 fill-text-primary stroke-text-primary" />
               <a
                 href="tel:14153880440"
-                className="font-Bodina-Moda-SC text-xl text-gray-800 leading-1 tracking- pt-6"
+                className="font-Bodina-Moda-SC text-xl text-text-primary leading-1 tracking- pt-6"
               >
                 415-388-0440
               </a>
             </div>
             <div className="flex flex-row justify-baseline items-start border-t-gray-300 border-t pt-8">
               <span>
-                <BuildingStorefrontIcon className="w-6 fill-slate-800 stroke-slate-800" />
+                <BuildingStorefrontIcon className="w-6 fill-text-primary stroke-text-primary" />
               </span>
               <a
                 target="_blank"
                 href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
-                className="font-Bodina-Moda-SC text-lg text-gray-800 tracking-wide ml-2"
+                className="font-Bodina-Moda-SC text-lg text-text-primary tracking-wide ml-2"
               >
                 664 Redwood Highway Frontage Rd, Mill Valley, CA 94941
               </a>

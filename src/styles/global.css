@@ -22,12 +22,25 @@
   --breakpoint-xxs: 320px;
   --breakpoint-xs: 360px;
   --breakpoint-xsm: 480px;
+
+  --color-cream: #efe6dc;
+  --color-text-primary: #291d17;
+  --color-text-secondary: #45352c;
+  --color-text-muted: #8b7d75;
+  --color-section: #f7f4ef;
+  --color-hover-cream: #b8bba2;
 }
 
 p,
 a,
 span {
   @apply font-Lora tracking-wide;
+}
+
+h1,
+h2,
+h3 {
+  @apply text-text-secondary;
 }
 
 .swiper-slide-thumb-active img {

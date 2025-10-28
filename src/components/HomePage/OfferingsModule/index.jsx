@@ -80,7 +80,7 @@ const OfferingsModule = () => {
                   onClick={() => imageSelect(index)}
                   className="relative bg-black/50 p-1 rounded-lg"
                 >
-                  <ArrowsPointingOutIcon className="w-8 stroke-white" />
+                  <ArrowsPointingOutIcon className="w-8 stroke-cream hover:cursor-pointer" />
                 </div>
               </div>
               <img
@@ -144,7 +144,7 @@ const OfferingsModule = () => {
                 <img
                   src={slide.src}
                   alt={slide.alt}
-                  className="w-full object-cover rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
+                  className="w-full object-cover rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity hover:cursor-pointer"
                 />
               </SwiperSlide>
             ))}
