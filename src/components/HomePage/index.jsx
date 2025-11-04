@@ -107,7 +107,7 @@ const HomePage = () => {
         <div className="bg-section w-full flex flex-col items-center">
           <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl md:px-0 xs:px-4">
             <div className="w-full">
-              <Headline>First class experience</Headline>
+              <Headline>Tradition of Excellence</Headline>
             </div>
             <div className="w-full">
               <div className="mt-6">

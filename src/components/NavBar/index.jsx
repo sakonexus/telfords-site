@@ -17,12 +17,21 @@ const Navbar = ({ homePage = false }) => {
       setSections((prev) => ({ ...prev, [id]: visible }));
     };
 
+    if (isOpen) {
+      // Disable background scroll
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scroll
+      document.body.style.overflow = '';
+    }
+
     window.addEventListener('sectionVisible', handleSection);
 
     return () => {
       window.removeEventListener('sectionVisible', handleSection);
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [isOpen]);
 
   const heroVisible = sections['hero'] ?? true;
 
@@ -51,7 +60,6 @@ const Navbar = ({ homePage = false }) => {
         },
       ],
     },
-    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -174,7 +182,7 @@ const Navbar = ({ homePage = false }) => {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col justify-between">
           <div>
             <div className="flex justify-end p-4 items-baseline">
               <button onClick={() => setIsOpen(false)} aria-label="Close menu">
@@ -215,8 +223,11 @@ const Navbar = ({ homePage = false }) => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col pb-10 space-y-8 px-6">
-            <div className="flex flex-row items-baseline justify-start gap-x-2">
+          <div className="flex flex-col pb-10 px-6 mt-16">
+            <h2 className="font-Bodina-Moda-SC text-lg text-text-primary hover:text-text-muted">
+              Contact us
+            </h2>
+            <div className="flex flex-row items-baseline justify-start gap-x-2 space-y-8 pt-4">
               <PhoneIcon className="w-6 fill-text-primary stroke-text-primary" />
               <a
                 href="tel:14153880440"

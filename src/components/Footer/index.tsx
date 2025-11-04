@@ -16,28 +16,22 @@ const Footer = () => {
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
           <a
-            href="#"
+            href="/"
             className="text-footer-text hover:text-hover-cream transition-colors"
           >
             Home
           </a>
           <a
-            href="#"
+            href="/about"
             className="text-footer-text hover:text-hover-cream transition-colors"
           >
             Our story
           </a>
           <a
-            href="#"
+            href="/products"
             className="text-footer-text hover:text-hover-cream transition-colors"
           >
             Products
-          </a>
-          <a
-            href="#"
-            className="text-footer-text hover:text-hover-cream transition-colors"
-          >
-            Contact
           </a>
         </nav>
 

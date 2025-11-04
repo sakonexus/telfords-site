@@ -65,7 +65,9 @@ const GalleryModule = ({
               slidesPerView: slidesPerView - 1,
               spaceBetween: 10,
               grid: {
-                rows: Math.ceil(imagesArray.length / slidesPerView + 1),
+                rows: singleRow
+                  ? 1
+                  : Math.ceil(imagesArray.length / slidesPerView + 1),
               },
               autoplay: true,
             },

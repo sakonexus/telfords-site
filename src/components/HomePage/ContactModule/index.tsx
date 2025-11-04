@@ -53,7 +53,7 @@ const ContactModule = () => {
   return (
     <div className="flex flex-col items-center text-center py-12 px-4 w-full">
       <Headline>Contact us</Headline>
-      <div className="flex flex-col w-full md:max-w-2xl mt-4">
+      <div className="flex flex-col w-full md:max-w-2xl mt-12">
         <TwoColumn
           module1={Module1}
           module2={Module2}
