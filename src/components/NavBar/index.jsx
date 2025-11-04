@@ -7,7 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 import MobileNavLink from './MobileNavLink';
 
-const Navbar = ({ homePage = false }) => {
+const Navbar = ({ homePage = false, logoImg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sections, setSections] = useState({});
 
@@ -78,12 +78,13 @@ const Navbar = ({ homePage = false }) => {
         <div className="flex flex-row justify-center items-end">
           <a href="/">
             <img
-              src="/Telfords-Character-Logo.png"
+              src={logoImg.src}
               className={`${
                 heroVisible === true && homePage === true
                   ? 'md:w-28 w-20'
                   : 'md:w-20 w-12'
               } transition-all`}
+              alt="Telford's Pipe & Tobacco inc."
             />
           </a>
           <div

@@ -3,10 +3,9 @@ import Hero from './Hero';
 import TwoColumn from '@components/TwoColumn';
 import ContactModule from '@components/HomePage/ContactModule';
 import GalleryModule from '@components/GalleryModule';
-import { homeGallery, historicImages } from '@data/gallery-images';
 import Headline from '@components/Headline';
 
-const HomePage = () => {
+const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
@@ -24,7 +23,7 @@ const HomePage = () => {
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
-        src="/i/lounge-area-storage-boxes.JPG"
+        src={homeImgs[1].src}
         alt="Smoking Lounge"
       />
     </div>
@@ -46,7 +45,7 @@ const HomePage = () => {
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
-        src="/i/wall-of-cigars-1.jpg"
+        src={homeImgs[0].src}
         alt="Cigar wall"
       />
     </div>
@@ -54,7 +53,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col w-full justify-center items-center bg-cream">
-      <Hero />
+      <Hero heroImgs={heroImgs} />
       <div className="flex flex-col w-full items-center">
         <div className="bg-section w-full">
           <ContactModule />

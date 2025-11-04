@@ -1,11 +1,11 @@
 import Headline from '@components/Headline';
 
-const AboutPage = () => {
+const AboutPage = ({ headerImg }) => {
   return (
     <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-4 ">
       <div className="flex w-full max-w-7xl">
         <img
-          src="/i/telfords-mural.jpg"
+          src={headerImg.src}
           alt="Telford's Lounge Mural"
           className="w-full md:rounded-md xs:rounded-none"
         />

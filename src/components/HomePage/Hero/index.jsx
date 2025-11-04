@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const Hero = () => {
+const Hero = ({ heroImgs }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -30,17 +30,17 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      src: '/i/hero-slider/xikar-cigar.JPG',
+      src: heroImgs[0].src,
       alt: 'Cigar',
     },
     {
       id: 2,
-      src: '/i/hero-slider/storefront-view.JPG',
+      src: heroImgs[1].src,
       alt: 'Storefront',
     },
     {
       id: 3,
-      src: '/i/hero-slider/pipe-wall.JPG',
+      src: heroImgs[2].src,
       alt: 'Wall of pipes',
     },
   ];

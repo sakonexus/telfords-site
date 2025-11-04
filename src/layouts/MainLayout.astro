@@ -2,6 +2,10 @@
 import "../styles/global.css";
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
+import { getImage } from 'astro:assets';
+import telfordsLogo from '@assets/Telfords-Character-Logo.png';
+
+const logoImage = await getImage({ src: telfordsLogo });
 ---
 <html lang="en">
   <head>
@@ -11,7 +15,7 @@ import Footer from '@components/Footer';
     <link rel="icon" type="image/x-icon" href="/favicon.jpg">
   </head>
   <body class="w-full">
-    <NavBar client:load homePage={Astro.url.pathname === "/"} />
+    <NavBar logoImg={logoImage} client:load homePage={Astro.url.pathname === "/"} />
     <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16 bg-cream'}`}>
       <slot />
       <Footer />

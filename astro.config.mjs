@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,10 +11,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@components': '/src/components',
-        '@layouts': '/src/layouts',
-        '@hooks': '/src/hooks',
-        '@data': '/src/data',
+        '@components': path.resolve('./src/components'),
+        '@layouts': path.resolve('./src/layouts'),
+        '@hooks': path.resolve('./src/hooks'),
+        '@data': path.resolve('./src/data'),
+        '@assets': path.resolve('./src/assets'),
       },
     },
   },

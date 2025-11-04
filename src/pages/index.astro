@@ -1,8 +1,136 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
 import HomePage from '@components/HomePage'
+import { getImage } from 'astro:assets';
+
+import cigarImage from '@assets/hero-slider/xikar-cigar.jpg';
+import storefrontImage from '@assets/hero-slider/storefront-view.jpg';
+import pipeWallImage from '@assets/hero-slider/pipe-wall.jpg';
+
+
+import loungeBoxesImage from '@assets/home/lounge-area-storage-boxes.jpg';
+import cigarWallImage from '@assets/home/wall-of-cigars-1.jpg';
+
+const xikarImage = await getImage({ src: cigarImage });
+const storeImage = await getImage({ src: storefrontImage });
+const pipesImage = await getImage({ src: pipeWallImage });
+
+const wallOfCigarsImage = await getImage({ src: cigarWallImage });
+const loungeImage = await getImage({ src: loungeBoxesImage });
+
+import img1 from '@assets/home/home-gallery/davidoff-cabinet-angle-1.jpg';
+import img2 from '@assets/home/home-gallery/placsncia-cigars.jpg';
+import img4 from '@assets/home/home-gallery/pipe-tobacco-angle-1.jpg';
+import img3 from '@assets/home/home-gallery/pipe-wall-angle.jpg';
+import img5 from '@assets/home/home-gallery/cigar-cabinet-angle-1.jpg';
+
+const homeGallery = [
+  {
+    id: 1,
+    src: img1,
+    alt: 'Davidoff cigar cabinet',
+  },
+  {
+    id: 2,
+    src: img2,
+    alt: 'Plasencia cigars',
+  },
+  {
+    id: 3,
+    src: img3,
+    alt: 'Pipe wall',
+  },
+  {
+    id: 4,
+    src: img4,
+    alt: 'Pipe wall',
+  },
+  {
+    id: 5,
+    src: img5,
+    alt: 'Cigar cabinet wall',
+  },
+];
+
+import historyImg1 from '@assets/home/history/IMG_7397.jpg';
+import historyImg2 from '@assets/home/history/IMG_7391.jpg';
+import historyImg3 from '@assets/home/history/IMG_7424.jpg';
+import historyImg4 from '@assets/home/history/IMG_7506.jpg';
+import historyImg5 from '@assets/home/history/IMG_7385.jpg';
+import historyImg6 from '@assets/home/history/IMG_7402.jpg';
+import historyImg7 from '@assets/home/history/IMG_7752.jpg';
+import historyImg8 from '@assets/home/history/IMG_7744.jpg';
+import historyImg9 from '@assets/home/history/IMG_7408.jpg';
+import historyImg10 from '@assets/home/history/IMG_7528.jpg';
+
+const historicImages = [
+  {
+    id: 1,
+    src: historyImg1,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 2,
+    src: historyImg2,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 3,
+    src: historyImg3,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 4,
+    src: historyImg4,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 5,
+    src: historyImg5,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 6,
+    src: historyImg6,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 7,
+    src: historyImg7,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 8,
+    src: historyImg8,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 9,
+    src: historyImg9,
+    alt: 'Vintage smoking tools',
+  },
+  {
+    id: 10,
+    src: historyImg10,
+    alt: 'Vintage smoking tools',
+  },
+];
+
+const optimizedHomeGallery = await Promise.all(
+	homeGallery.map(async (item) => {
+		const image = await getImage({ src: item.src, format: 'webp' });
+		return { ...item, src: image. src};
+	})
+)
+
+const optimizedHistoryGallery = await Promise.all(
+	historicImages.map(async (item) => {
+		const image = await getImage({ src: item.src, format: 'webp' });
+		return { ...item, src: image. src};
+	})
+)
 ---
 
 <MainLayout>
-	<HomePage client:load />
+	<HomePage historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[xikarImage, storeImage, pipesImage]} client:load />
 </MainLayout>
