@@ -1,3 +1,5 @@
+import Headline from '@components/Headline';
+
 const AboutPage = () => {
   return (
     <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-4 ">
@@ -9,7 +11,7 @@ const AboutPage = () => {
         />
       </div>
       <div className="flex flex-col ml-0 mt-10 xs:px-4 max-w-7xl">
-        <h1 className="font-MonteCarlo text-6xl">Our story</h1>
+        <Headline>Our story</Headline>
         <div className="border-t border-slate-400 mt-0">&nbsp;</div>
         <p className="font-Baskerville text-xl pt-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec

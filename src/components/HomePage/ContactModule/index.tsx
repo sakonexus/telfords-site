@@ -1,6 +1,7 @@
 import React from 'react';
 import { PhoneIcon, BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 import TwoColumn from '@components/TwoColumn';
+import Headline from '@components/Headline';
 
 const ContactModule = () => {
   const Module1 = (
@@ -51,7 +52,7 @@ const ContactModule = () => {
 
   return (
     <div className="flex flex-col items-center text-center py-12 px-4 w-full">
-      <h2 className="font-MonteCarlo text-6xl">Contact us</h2>
+      <Headline>Contact us</Headline>
       <div className="flex flex-col w-full md:max-w-2xl mt-4">
         <TwoColumn
           module1={Module1}

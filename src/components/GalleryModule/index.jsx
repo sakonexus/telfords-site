@@ -17,6 +17,7 @@ const GalleryModule = ({
   autoplay = true,
   gridView = false,
   showExpandIcon = true,
+  singleRow = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -61,16 +62,21 @@ const GalleryModule = ({
           onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
           breakpoints={{
             0: {
-              slidesPerView: 1,
-              spaceBetween: 0,
+              slidesPerView: slidesPerView - 1,
+              spaceBetween: 10,
               grid: {
-                rows: 1,
+                rows: Math.ceil(imagesArray.length / slidesPerView + 1),
               },
               autoplay: true,
             },
             640: {
               slidesPerView: slidesPerView,
               spaceBetween: 25,
+              grid: {
+                rows: singleRow
+                  ? 1
+                  : Math.ceil(imagesArray.length / slidesPerView + 1),
+              },
             },
           }}
         >
@@ -99,64 +105,67 @@ const GalleryModule = ({
       </div>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="flex flex-col justify-center items-center w-full px-4 sm:px-0">
-          <Swiper
-            modules={[A11y, Thumbs]}
-            navigation
-            loop={true}
-            slidesPerView={1}
-            speed={600}
-            spaceBetween={10}
-            className="w-full"
-            initialSlide={selectedImageIndex}
-            thumbs={{
-              swiper:
-                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-            }}
-          >
-            {imagesArray.map((slide) => (
-              <SwiperSlide key={slide.id}>
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="w-full h-full object-contain rounded-md"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            modules={[Navigation, A11y, Thumbs, Grid]}
-            watchSlidesProgress
-            slidesPerView={5}
-            spaceBetween={10}
-            grid={{
-              rows: gridView ? rowCount : 1,
-              fill: 'row',
-            }}
-            className="w-full mt-12"
-            breakpoints={{
-              0: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-              },
-              640: {
-                slidesPerView: 5,
-                spaceBetween: 15,
-              },
-            }}
-          >
-            {imagesArray.map((slide, index) => (
-              <SwiperSlide key={slide.id}>
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="w-full object-cover rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity hover:cursor-pointer"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="flex flex-col w-full">
+          <div className="flex flex-col justify-center items-center w-full">
+            <Swiper
+              modules={[A11y, Thumbs]}
+              navigation
+              loop={true}
+              slidesPerView={1}
+              speed={600}
+              spaceBetween={10}
+              className="w-full"
+              initialSlide={selectedImageIndex}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              }}
+            >
+              {imagesArray.map((slide) => (
+                <SwiperSlide key={slide.id}>
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="w-full h-full object-contain"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="flex px-2">
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              modules={[Navigation, A11y, Thumbs, Grid]}
+              watchSlidesProgress
+              slidesPerView={5}
+              spaceBetween={10}
+              grid={{
+                rows: gridView ? rowCount : 1,
+                fill: 'row',
+              }}
+              className="w-full my-4 px-4"
+              breakpoints={{
+                0: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                640: {
+                  slidesPerView: 5,
+                  spaceBetween: 15,
+                },
+              }}
+            >
+              {imagesArray.map((slide, index) => (
+                <SwiperSlide key={slide.id}>
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="w-full object-cover rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity hover:cursor-pointer"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </Modal>
     </div>

@@ -4,11 +4,12 @@ import TwoColumn from '@components/TwoColumn';
 import ContactModule from '@components/HomePage/ContactModule';
 import GalleryModule from '@components/GalleryModule';
 import { homeGallery, historicImages } from '@data/gallery-images';
+import Headline from '@components/Headline';
 
 const HomePage = () => {
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
-      <h2 className="font-MonteCarlo text-6xl">Smoking Lounge</h2>
+      <Headline>Smoking Lounge</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Baskerville text-xl mt-2 pl-6 leading-relaxed pb-6 md:pb-0">
         Step into a world of refined comfort where rich leather chairs, smooth
@@ -22,8 +23,7 @@ const HomePage = () => {
   const LoungeModule2 = (
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
-        className="w-full transform transition-transform duration-300 
-      hover:scale-110 origin-center rounded-md"
+        className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
         src="/i/lounge-area-storage-boxes.JPG"
         alt="Smoking Lounge"
       />
@@ -32,7 +32,7 @@ const HomePage = () => {
 
   const SelectionModule1 = (
     <div className="flex flex-col md:ml-10 px-4 w-full xs:px-4">
-      <h2 className="font-MonteCarlo text-6xl">For All Tastes</h2>
+      <Headline>For All Tastes</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Baskerville text-xl mt-2 pl-6 leading-relaxed pb-6 md:pb-0">
         With the largest selection of cigars in California, you’ll be sure to
@@ -45,8 +45,7 @@ const HomePage = () => {
   const SelectionModule2 = (
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
-        className="w-full transform transition-transform duration-300 
-      hover:scale-110 origin-center rounded-md"
+        className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
         src="/i/wall-of-cigars-1.jpg"
         alt="Cigar wall"
       />
@@ -79,11 +78,14 @@ const HomePage = () => {
           </section>
         </div>
         <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full mt-18 max-w-7xl md:px-0 xs:px-4">
-          <div className="flex flex-col">
-            <h2 className="font-MonteCarlo text-6xl xs:leading-tight">
-              Experience the Heritage of&nbsp;Tobacco
-            </h2>
-            <div className="border-t border-slate-400 mt-0">&nbsp;</div>
+          <div className="flex flex-col md:items-center xs:items-start">
+            <Headline>
+              Experience the <br className="md:hidden xs:block" />
+              Heritage of&nbsp;Tobacco
+            </Headline>
+            <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
+              &nbsp;
+            </div>
             <p className="font-Baskerville text-xl mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6">
               Our shop is home to a curated collection of historic pipes,
               cigars, and tobacco accessories, each telling a story of
@@ -95,19 +97,21 @@ const HomePage = () => {
             </p>
           </div>
           <div className="flex w-full my-8">
-            <GalleryModule imagesArray={historicImages} slidesPerView={2} />
+            <GalleryModule
+              imagesArray={historicImages}
+              slidesPerView={2}
+              singleRow
+            />
           </div>
         </section>
         <div className="bg-section w-full flex flex-col items-center">
-          <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl">
-            <div className="w-full md:w-3/4">
-              <h2 className="font-MonteCarlo text-6xl px-4">
-                First class experience
-              </h2>
+          <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl md:px-0 xs:px-4">
+            <div className="w-full">
+              <Headline>First class experience</Headline>
             </div>
-            <div className="w-full p-4">
+            <div className="w-full">
               <div className="mt-6">
-                <GalleryModule imagesArray={homeGallery} />
+                <GalleryModule imagesArray={homeGallery} singleRow />
               </div>
             </div>
           </section>

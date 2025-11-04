@@ -25,7 +25,7 @@ const Footer = () => {
             href="#"
             className="text-footer-text hover:text-hover-cream transition-colors"
           >
-            About
+            Our story
           </a>
           <a
             href="#"

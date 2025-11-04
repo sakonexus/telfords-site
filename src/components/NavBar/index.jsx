@@ -5,6 +5,7 @@ import {
   PhoneIcon,
   BuildingStorefrontIcon,
 } from '@heroicons/react/24/outline';
+import MobileNavLink from './MobileNavLink';
 
 const Navbar = ({ homePage = false }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +85,7 @@ const Navbar = ({ homePage = false }) => {
                 : 'opacity-100'
             } ml-2 transition-opacity duration-300`}
           >
-            <p className="font-Baskerville text-xl">
+            <p className="font-Baskerville md:text-xl xs:text-md">
               Telford&#8217;s Pipe & Cigar, inc.
             </p>
           </div>
@@ -169,7 +170,7 @@ const Navbar = ({ homePage = false }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 h-lvh w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -186,30 +187,30 @@ const Navbar = ({ homePage = false }) => {
                   className="flex flex-col"
                   key={`${'nav-' + link.name + '-mobile'}`}
                 >
-                  <a
-                    href={link.href}
-                    className={`text-text-primary transition-colors font-Bodina-Moda-SC text-2xl ${
-                      index === 0 ? '' : 'border-t-gray-300 border-t pt-4'
-                    }`}
+                  <MobileNavLink
                     onClick={() => setIsOpen(false)}
+                    index={index}
+                    link={link.href}
                   >
                     {link.name}
-                  </a>
-                  <div className="flex flex-col ml-2">
+                  </MobileNavLink>
+                  <ul
+                    className={`mobile-nav flex flex-col ml-4 gap-y-4 mt-2 ${
+                      link.submenu ? 'block' : 'hidden'
+                    }`}
+                  >
                     {link.submenu
                       ? link.submenu.map((menuItem) => {
                           return (
-                            <a
-                              key={`${'nav-' + menuItem.name + '-mobile'}`}
-                              className="pt-4 text-lg"
-                              href={menuItem.href}
-                            >
-                              {menuItem.name}
-                            </a>
+                            <li key={`${'nav-' + menuItem.name + '-mobile'}`}>
+                              <a className="pt-4 text-md" href={menuItem.href}>
+                                {menuItem.name}
+                              </a>
+                            </li>
                           );
                         })
                       : null}
-                  </div>
+                  </ul>
                 </div>
               ))}
             </div>
@@ -219,7 +220,7 @@ const Navbar = ({ homePage = false }) => {
               <PhoneIcon className="w-6 fill-text-primary stroke-text-primary" />
               <a
                 href="tel:14153880440"
-                className="font-Bodina-Moda-SC text-xl text-text-primary leading-1 tracking- pt-6"
+                className="font-Bodina-Moda-SC text-md text-text-primary leading-1 pt-6"
               >
                 415-388-0440
               </a>
@@ -231,7 +232,7 @@ const Navbar = ({ homePage = false }) => {
               <a
                 target="_blank"
                 href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
-                className="font-Bodina-Moda-SC text-lg text-text-primary tracking-wide ml-2"
+                className="font-Bodina-Moda-SC text-md text-text-primary tracking-wide ml-2"
               >
                 664 Redwood Highway Frontage Rd, Mill Valley, CA 94941
               </a>

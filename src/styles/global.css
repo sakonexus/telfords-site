@@ -50,3 +50,10 @@ h3 {
 .swiper-slide-thumb-active img {
   @apply opacity-100 border-2 border-amber-400;
 }
+
+.mobile-nav li::before {
+  content: '›';
+  color: #a68a70;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
