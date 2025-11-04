@@ -28,7 +28,28 @@ const Navbar = ({ homePage = false }) => {
   const links = [
     { name: 'Home', href: '/' },
     { name: 'Our Story', href: '/about' },
-    { name: 'Products', href: '/services' },
+    {
+      name: 'Products',
+      href: '/products',
+      submenu: [
+        {
+          name: 'Pipes',
+          href: '/products/pipes',
+        },
+        {
+          name: 'Cigars',
+          href: '/products/cigars',
+        },
+        {
+          name: 'Tobacco',
+          href: '/products/tobacco',
+        },
+        {
+          name: 'Accessories',
+          href: '/products/accessories',
+        },
+      ],
+    },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -37,7 +58,7 @@ const Navbar = ({ homePage = false }) => {
       className={`fixed top-0 left-0 w-full z-[99] md:absolute transition-colors duration-300 ${
         homePage && heroVisible === true
           ? 'bg-transparent'
-          : 'bg-cream text-gray-800 shadow-md'
+          : 'bg-cream text-gray-800 shadow-sm'
       }`}
     >
       <div
@@ -45,7 +66,6 @@ const Navbar = ({ homePage = false }) => {
           homePage ? 'items-center' : 'items-end'
         } max-w-7xl mx-auto flex justify-between transition-all duration-300`}
       >
-        {/* Logo */}
         <div className="flex flex-row justify-center items-end">
           <a href="/">
             <img
@@ -64,27 +84,69 @@ const Navbar = ({ homePage = false }) => {
                 : 'opacity-100'
             } ml-2 transition-opacity duration-300`}
           >
-            <p className="font-Baskerville text-lg">
+            <p className="font-Baskerville text-xl">
               Telford&#8217;s Pipe & Cigar, inc.
             </p>
           </div>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`${
-                homePage
-                  ? 'text-cream hover:text-hover-cream'
-                  : 'text-text-primary hover:text-text-muted'
-              } text-2xl tracking-wider  transition-colors font-Bodina-Moda-SC`}
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="hidden md:flex space-x-6 relative">
+          {links.map((link) =>
+            link.submenu ? (
+              <div
+                key={`${'nav-' + link.name + '-desktop'}`}
+                className="group relative"
+              >
+                <a
+                  href={link.href}
+                  className={`${
+                    homePage
+                      ? 'text-cream hover:text-hover-cream'
+                      : 'text-text-primary hover:text-text-muted'
+                  } text-2xl tracking-wider transition-colors font-Bodina-Moda-SC`}
+                >
+                  {link.name}
+                </a>
+
+                {/* Dropdown submenu */}
+                <div
+                  className={`absolute left-0 top-full hidden w-48 rounded-md bg-cream shadow-md opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-200`}
+                >
+                  <ul className="flex flex-col">
+                    {link.submenu.map((sub, index) => (
+                      <li key={`${'nav-' + sub.name + '-desktop'}`}>
+                        <a
+                          href={sub.href}
+                          className={`block px-4 py-2 text-text-primary hover:bg-hover-cream transition-colors ${
+                            index === 0
+                              ? 'rounded-tl-md rounded-tr-md'
+                              : index == link.submenu.length - 1
+                              ? 'rounded-bl-md rounded-br-md'
+                              : 'rounded-none'
+                          }`}
+                        >
+                          {sub.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <a
+                key={`${'nav-' + link.name + '-desktop'}`}
+                href={link.href}
+                className={`${
+                  homePage
+                    ? 'text-cream hover:text-hover-cream'
+                    : 'text-text-primary hover:text-text-muted'
+                } text-2xl tracking-wider transition-colors font-Bodina-Moda-SC`}
+              >
+                {link.name}
+              </a>
+            )
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -107,32 +169,50 @@ const Navbar = ({ homePage = false }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-cream shadow-lg transform transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-cream shadow-md transform transition-transform duration-300 md:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col justify-between h-full">
           <div>
-            <div className="flex justify-between p-4 items-baseline">
-              <p className="font-Bodina-Moda-SC text-2xl text-text-secondary pl-2">
-                Menu
-              </p>
+            <div className="flex justify-end p-4 items-baseline">
               <button onClick={() => setIsOpen(false)} aria-label="Close menu">
                 <XMarkIcon className="h-8 w-8 stroke-text-muted" />
               </button>
             </div>
-            <nav className="flex flex-col space-y-8 p-6">
-              {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-text-primary transition-colors font-Bodina-Moda-SC text-2xl border-t-gray-300 border-t pt-4"
-                  onClick={() => setIsOpen(false)}
+            <div className="flex flex-col p-6 space-y-4">
+              {links.map((link, index) => (
+                <div
+                  className="flex flex-col"
+                  key={`${'nav-' + link.name + '-mobile'}`}
                 >
-                  {link.name}
-                </a>
+                  <a
+                    href={link.href}
+                    className={`text-text-primary transition-colors font-Bodina-Moda-SC text-2xl ${
+                      index === 0 ? '' : 'border-t-gray-300 border-t pt-4'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                  <div className="flex flex-col ml-2">
+                    {link.submenu
+                      ? link.submenu.map((menuItem) => {
+                          return (
+                            <a
+                              key={`${'nav-' + menuItem.name + '-mobile'}`}
+                              className="pt-4 text-lg"
+                              href={menuItem.href}
+                            >
+                              {menuItem.name}
+                            </a>
+                          );
+                        })
+                      : null}
+                  </div>
+                </div>
               ))}
-            </nav>
+            </div>
           </div>
           <div className="flex flex-col pb-10 space-y-8 px-6">
             <div className="flex flex-row items-baseline justify-start gap-x-2">

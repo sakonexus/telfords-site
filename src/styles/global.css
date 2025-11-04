@@ -9,6 +9,7 @@
 @import 'swiper/css/pagination';
 @import 'swiper/css/scrollbar';
 @import 'swiper/css/thumbs';
+@import 'swiper/css/grid';
 
 @tailwind utilities;
 
@@ -29,6 +30,8 @@
   --color-text-muted: #8b7d75;
   --color-section: #f7f4ef;
   --color-hover-cream: #b8bba2;
+  --color-footer: #3e2c23;
+  --color-footer-text: #efe6dc;
 }
 
 p,

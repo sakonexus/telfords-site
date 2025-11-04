@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-neutral-900 py-10 px-4">
+    <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8">
-        <div className="flex flex-col text-center md:text-left">
-          <p className="text-xl font-semibold text-text-muted font-Baskerville">
+        <div className="flex flex-col text-center justify-center md:text-left">
+          <p className="text-xl font-semibold text-footer-text font-Baskerville">
             Telford&#8217;s Pipe & Cigar, Inc.
           </p>
-          <p className="text-sm text-text-muted mt-2 font-Baskerville tracking-wide leading-relaxed">
+          <p className="text-sm text-footer-text mt-2 font-Baskerville tracking-wide leading-relaxed">
             Marin County's largest tobacco provider <br />
             for over 30&nbsp;years
           </p>
@@ -18,25 +18,25 @@ const Footer = () => {
         <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
           <a
             href="#"
-            className="text-text-muted hover:text-hover-cream transition-colors"
+            className="text-footer-text hover:text-hover-cream transition-colors"
           >
             Home
           </a>
           <a
             href="#"
-            className="text-text-muted hover:text-hover-cream transition-colors"
+            className="text-footer-text hover:text-hover-cream transition-colors"
           >
             About
           </a>
           <a
             href="#"
-            className="text-text-muted hover:text-hover-cream transition-colors"
+            className="text-footer-text hover:text-hover-cream transition-colors"
           >
-            Services
+            Products
           </a>
           <a
             href="#"
-            className="text-text-muted hover:text-hover-cream transition-colors"
+            className="text-footer-text hover:text-hover-cream transition-colors"
           >
             Contact
           </a>
@@ -74,7 +74,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Line */}
-      <div className="mt-10 border-t border-neutral-800 pt-4 text-center text-sm text-text-muted">
+      <div className="flex items-center justify-center sm:w-1/4 mt-10 border-t border-[#D9CCC1] pt-4 text-center text-sm text-footer-text xs:w-full">
         <p>
           © {new Date().getFullYear()} Telford&#8217;s Pipe & Cigar, Inc.
           <br />

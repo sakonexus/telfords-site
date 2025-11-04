@@ -13,6 +13,7 @@ export default defineConfig({
         '@components': '/src/components',
         '@layouts': '/src/layouts',
         '@hooks': '/src/hooks',
+        '@data': '/src/data',
       },
     },
   },
