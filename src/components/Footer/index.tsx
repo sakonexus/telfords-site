@@ -2,15 +2,14 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 px-4">
-      <div className="mx-auto flex flex-col justify-between items-center gap-8">
-        <div className="flex flex-col text-center justify-center md:text-left">
+    <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 xs:px-4">
+      <div className="mx-auto flex flex-col justify-between items-center gap-8 w-fulll">
+        <div className="flex flex-col text-center justify-center">
           <p className="text-xl font-semibold text-footer-text font-Baskerville">
             Telford&#8217;s Pipe & Cigar, Inc.
           </p>
           <p className="text-sm text-footer-text mt-2 font-Baskerville tracking-wide leading-relaxed">
-            Marin County's largest tobacco provider <br />
-            for over 30&nbsp;years
+            Marin County's largest tobacco provider for over 30&nbsp;years
           </p>
         </div>
 
@@ -73,8 +72,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Line */}
-      <div className="flex items-center justify-center sm:w-1/4 mt-10 border-t border-[#D9CCC1] pt-4 text-center text-sm text-footer-text xs:w-full">
+      <div className="flex items-center justify-center md:w-1/4 mt-10 border-t border-[#D9CCC1] pt-4 text-center text-sm text-footer-text w-full">
         <p>
           © {new Date().getFullYear()} Telford&#8217;s Pipe & Cigar, Inc.
           <br />

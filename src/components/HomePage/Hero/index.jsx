@@ -48,7 +48,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="relative w-full h-[100vh] xxs:max-h-[50vh] xs:max-h-[60vh] sm:max-h-[80vh]"
+      className="relative w-full h-[100vh] xxs:max-h-[50vh] xs:max-h-[60vh] md:max-h-[80vh]"
     >
       <Swiper
         modules={[Autoplay]}

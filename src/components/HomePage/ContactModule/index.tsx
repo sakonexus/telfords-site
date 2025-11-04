@@ -4,7 +4,7 @@ import TwoColumn from '@components/TwoColumn';
 
 const ContactModule = () => {
   const Module1 = (
-    <div className="flex flex-col w-full justify-center items-center">
+    <div className="flex flex-col w-full justify-center items-center max-w-12/12">
       <a
         target="_blank"
         href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
@@ -33,7 +33,7 @@ const ContactModule = () => {
   );
 
   const Module2 = (
-    <div className="flex flex-col w-full justify-start items-center gap-y-4 text-center px-8 pt-12 sm:pt-0">
+    <div className="flex flex-col w-full justify-start items-center gap-y-4 text-center px-8 pt-12 md:pt-0">
       <a
         href="tel:14153880440"
         className="bg-white p-4 rounded-full border border-gray-100 drop-shadow-md hover:cursor-pointer"
@@ -50,9 +50,9 @@ const ContactModule = () => {
   );
 
   return (
-    <div className="flex flex-col items-center text-center py-12 px-4 bg-section w-full">
+    <div className="flex flex-col items-center text-center py-12 px-4 w-full">
       <h2 className="font-MonteCarlo text-6xl">Contact us</h2>
-      <div className="flex flex-col w-full sm:max-w-2xl mt-4">
+      <div className="flex flex-col w-full md:max-w-2xl mt-4">
         <TwoColumn
           module1={Module1}
           module2={Module2}

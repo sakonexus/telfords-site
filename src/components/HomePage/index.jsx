@@ -7,7 +7,7 @@ import { homeGallery, historicImages } from '@data/gallery-images';
 
 const HomePage = () => {
   const LoungeModule1 = (
-    <div className="flex flex-col px-4 w-full sm:mr-10 xs:mr-0 xs:px-0">
+    <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <h2 className="font-MonteCarlo text-6xl">Smoking Lounge</h2>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Baskerville text-xl mt-2 pl-6 leading-relaxed pb-6 md:pb-0">
@@ -20,10 +20,10 @@ const HomePage = () => {
     </div>
   );
   const LoungeModule2 = (
-    <div className="flex w-full items-center justify-center overflow-hidden rounded-md">
+    <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full transform transition-transform duration-300 
-      hover:scale-110 origin-center"
+      hover:scale-110 origin-center rounded-md"
         src="/i/lounge-area-storage-boxes.JPG"
         alt="Smoking Lounge"
       />
@@ -31,7 +31,7 @@ const HomePage = () => {
   );
 
   const SelectionModule1 = (
-    <div className="flex flex-col sm:ml-10 px-4 w-full xs:px-0">
+    <div className="flex flex-col md:ml-10 px-4 w-full xs:px-4">
       <h2 className="font-MonteCarlo text-6xl">For All Tastes</h2>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Baskerville text-xl mt-2 pl-6 leading-relaxed pb-6 md:pb-0">
@@ -43,10 +43,10 @@ const HomePage = () => {
     </div>
   );
   const SelectionModule2 = (
-    <div className="flex w-full items-center justify-center overflow-hidden rounded-md">
+    <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full transform transition-transform duration-300 
-      hover:scale-110 origin-center"
+      hover:scale-110 origin-center rounded-md"
         src="/i/wall-of-cigars-1.jpg"
         alt="Cigar wall"
       />
@@ -54,59 +54,65 @@ const HomePage = () => {
   );
 
   return (
-    <div className="flex flex-col w-full justify-center items-center">
+    <div className="flex flex-col w-full justify-center items-center bg-cream">
       <Hero />
-      <ContactModule />
-      <div className="flex flex-col justify-center items-center">
-        <section className="flex justify-center items-center w-full md:w-3/4 pt-12 px-4">
-          <TwoColumn
-            module1={LoungeModule1}
-            module2={LoungeModule2}
-            dir="ltr"
-            containerClasses=""
-          />
-        </section>
-        <section className="flex justify-center items-center w-full md:w-3/4 pt-18 px-4">
-          <TwoColumn
-            module1={SelectionModule1}
-            module2={SelectionModule2}
-            dir="rtl"
-            containerClasses=""
-          />
-        </section>
-      </div>
-      <section className="flex flex-col justify-center items-center text-center w-full md:w-3/4 mt-18 px-4">
-        <div className="flex flex-col">
-          <h2 className="font-MonteCarlo text-6xl">
-            Experience the Heritage of Tobacco
-          </h2>
-          <div className="border-t border-slate-400 mt-0">&nbsp;</div>
-          <p className="font-Baskerville text-xl mt-4 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0">
-            Our shop is home to a curated collection of historic pipes, cigars,
-            and tobacco accessories, each telling a story of craftsmanship,
-            tradition, and refinement. From rare vintage pieces to iconic
-            designs that have shaped the industry, every item on display offers
-            a glimpse into the rich legacy of tobacco culture. Explore these
-            treasures and experience the heritage that continues to inspire
-            collectors and enthusiasts&nbsp;alike.
-          </p>
+      <div className="flex flex-col w-full items-center">
+        <div className="bg-section w-full">
+          <ContactModule />
         </div>
-        <div className="flex w-full my-8">
-          <GalleryModule imagesArray={historicImages} slidesPerView={2} />
+        <div className="flex flex-col justify-center items-center">
+          <section className="flex justify-center items-center w-full pt-12 max-w-7xl">
+            <TwoColumn
+              module1={LoungeModule1}
+              module2={LoungeModule2}
+              dir="ltr"
+              containerClasses=""
+            />
+          </section>
+          <section className="flex justify-center items-center w-full pt-18 max-w-7xl">
+            <TwoColumn
+              module1={SelectionModule1}
+              module2={SelectionModule2}
+              dir="rtl"
+              containerClasses=""
+            />
+          </section>
         </div>
-      </section>
-      <section className="flex w-full flex-col justify-center items-center mt-12 py-12 bg-section">
-        <div className="w-full md:w-3/4">
-          <h2 className="font-MonteCarlo text-6xl px-4">
-            First class experience
-          </h2>
-        </div>
-        <div className="w-full p-4">
-          <div className="mt-6">
-            <GalleryModule imagesArray={homeGallery} />
+        <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full mt-18 max-w-7xl md:px-0 xs:px-4">
+          <div className="flex flex-col">
+            <h2 className="font-MonteCarlo text-6xl xs:leading-tight">
+              Experience the Heritage of&nbsp;Tobacco
+            </h2>
+            <div className="border-t border-slate-400 mt-0">&nbsp;</div>
+            <p className="font-Baskerville text-xl mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6">
+              Our shop is home to a curated collection of historic pipes,
+              cigars, and tobacco accessories, each telling a story of
+              craftsmanship, tradition, and refinement. From rare vintage pieces
+              to iconic designs that have shaped the industry, every item on
+              display offers a glimpse into the rich legacy of tobacco culture.
+              Explore these treasures and experience the heritage that continues
+              to inspire collectors and enthusiasts&nbsp;alike.
+            </p>
           </div>
+          <div className="flex w-full my-8">
+            <GalleryModule imagesArray={historicImages} slidesPerView={2} />
+          </div>
+        </section>
+        <div className="bg-section w-full flex flex-col items-center">
+          <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl">
+            <div className="w-full md:w-3/4">
+              <h2 className="font-MonteCarlo text-6xl px-4">
+                First class experience
+              </h2>
+            </div>
+            <div className="w-full p-4">
+              <div className="mt-6">
+                <GalleryModule imagesArray={homeGallery} />
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

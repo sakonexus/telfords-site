@@ -22,7 +22,7 @@
 
   --breakpoint-xxs: 320px;
   --breakpoint-xs: 360px;
-  --breakpoint-xsm: 480px;
+  --breakpoint-xmd: 480px;
 
   --color-cream: #efe6dc;
   --color-text-primary: #291d17;
@@ -32,6 +32,7 @@
   --color-hover-cream: #b8bba2;
   --color-footer: #3e2c23;
   --color-footer-text: #efe6dc;
+  --color-nav-bg: #fff8f0;
 }
 
 p,

@@ -58,7 +58,7 @@ const Navbar = ({ homePage = false }) => {
       className={`fixed top-0 left-0 w-full z-[99] md:absolute transition-colors duration-300 ${
         homePage && heroVisible === true
           ? 'bg-transparent'
-          : 'bg-cream text-gray-800 shadow-sm'
+          : 'bg-nav-bg text-gray-800 shadow-sm'
       }`}
     >
       <div
@@ -111,7 +111,7 @@ const Navbar = ({ homePage = false }) => {
 
                 {/* Dropdown submenu */}
                 <div
-                  className={`absolute left-0 top-full hidden w-48 rounded-md bg-cream shadow-md opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-200`}
+                  className={`absolute left-0 top-full hidden w-48 rounded-md bg-nav-bg shadow-md opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-200`}
                 >
                   <ul className="flex flex-col">
                     {link.submenu.map((sub, index) => (
@@ -169,7 +169,7 @@ const Navbar = ({ homePage = false }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-cream shadow-md transform transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -180,7 +180,7 @@ const Navbar = ({ homePage = false }) => {
                 <XMarkIcon className="h-8 w-8 stroke-text-muted" />
               </button>
             </div>
-            <div className="flex flex-col p-6 space-y-4">
+            <div className="flex flex-col px-6 space-y-4">
               {links.map((link, index) => (
                 <div
                   className="flex flex-col"
