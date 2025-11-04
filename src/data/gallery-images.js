@@ -95,11 +95,6 @@ const tobaccoImages = [
     src: '/i/products/tobacco/pipe-tobacco-2.JPG',
     alt: 'Pipe tobacco',
   },
-  {
-    id: 5,
-    src: '/i/products/tobacco/pipe-tobacco-3.JPG',
-    alt: 'Pipe tobacco',
-  },
 ];
 
 const accessoryImages = [

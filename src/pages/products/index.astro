@@ -1,10 +1,21 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
+import ProductContent from '@components/ProductContent';
+import {productPages} from '@data/product-pages'
 
+export function getStaticPaths() {
+  return productPages.map(({ slug, title, text, galleryImages }) => ({
+    params: { slug },
+    props: { title, text, galleryImages },
+  }));
+}
 ---
-
 <MainLayout>
-	<div class="mt-20">
-    Products page
-  </div>
+  {
+    productPages.map(productPage => {
+      return (
+        <ProductContent productPage={true}  title={productPage.title} text={productPage.text} galleryImages={productPage.galleryImages} client:load />
+      )
+    })
+  }
 </MainLayout>

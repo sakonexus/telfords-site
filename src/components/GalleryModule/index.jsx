@@ -10,6 +10,7 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Modal from '@components/Modal';
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 const GalleryModule = ({
   imagesArray,
@@ -23,6 +24,7 @@ const GalleryModule = ({
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const mainSwiperRef = useRef(null);
+  const [initialized, setInitialized] = useState(false);
 
   const rowCount = useMemo(() => {
     if (!imagesArray?.length) return 1;
@@ -43,9 +45,11 @@ const GalleryModule = ({
 
   return (
     <div className="flex flex-col w-full justify-center items-center">
+      {!initialized && <LoadingSpinner />}
       <div className="flex w-full justify-center items-center">
         <Swiper
           modules={[Autoplay, Navigation, A11y, Grid, Pagination]}
+          onInit={() => setInitialized(true)}
           grid={{
             rows: gridView ? rowCount : 1,
             fill: 'row',
@@ -54,11 +58,14 @@ const GalleryModule = ({
             autoplay ? { delay: 3000, disableOnInteraction: false } : false
           }
           loop={true}
+          autoHeight={false}
           navigation={false}
           slidesPerView={slidesPerView}
           spaceBetween={25}
           speed={600}
-          className="flex w-full h-full rounded-md justify-center items-center"
+          className={`flex w-full h-full rounded-md justify-center items-center transform duration-300 ${
+            !initialized ? 'opacity-0' : 'opacity-100'
+          }`}
           onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
           breakpoints={{
             0: {
@@ -73,7 +80,7 @@ const GalleryModule = ({
             },
             640: {
               slidesPerView: slidesPerView,
-              spaceBetween: 25,
+              spaceBetween: 15,
               grid: {
                 rows: singleRow
                   ? 1

@@ -1,38 +1,10 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
-import GalleryModule from '@components/GalleryModule';
-import {pipeImages, cigarImages, tobaccoImages, accessoryImages} from '@data/gallery-images'
-import Headline from '@components/Headline';
+import ProductContent from '@components/ProductContent';
+import {productPages} from '@data/product-pages'
 
 export function getStaticPaths() {
-  const pages = [
-    {
-      slug: "pipes",
-      title: "Pipes",
-      text: "Elevate your smoking experience with our curated selection of premium pipes. From classic designs to bold, modern styles, each piece is crafted to perfection, blending artistry, comfort, and tradition. Whether you’re a seasoned connoisseur or just beginning your journey, our diverse collection offers a pipe to suit every taste and occasion.",
-      galleryImages: pipeImages,
-    },
-    {
-      slug: "cigars",
-      title: "Cigars",
-      text: "Experience the rich, nuanced flavors of our carefully curated cigar collection. From rare, hand-rolled classics to bold modern blends, each cigar embodies craftsmanship, tradition, and sophistication. Explore California’s largest selection and discover the perfect cigar to elevate any moment. Every cigar in our collection is chosen for its exceptional quality, offering a truly unparalleled smoking experience.",
-      galleryImages: cigarImages,
-    },
-    {
-      slug: "tobacco",
-      title: "Tobacco",
-      text: "We offer only the highest quality cigarettes, pipe tobacco, and related tobacco products, carefully selected for discerning tastes. Each product in our collection reflects craftsmanship and consistency, ensuring a superior smoking experience every time. Explore a range that combines tradition, quality, and sophistication.",
-      galleryImages: tobaccoImages,
-    },
-    {
-      slug: "accessories",
-      title: "Accessories",
-      text: "Complement your smoking experience with our curated selection of premium accessories. From elegant humidors and precision cutters to handcrafted lighters and stylish cases, each piece is designed for both function and sophistication. Discover tools that enhance every ritual and reflect the art of fine tobacco.",
-      galleryImages: accessoryImages,
-    },
-  ];
-
-  return pages.map(({ slug, title, text, galleryImages }) => ({
+  return productPages.map(({ slug, title, text, galleryImages }) => ({
     params: { slug },
     props: { title, text, galleryImages },
   }));
@@ -41,20 +13,5 @@ export function getStaticPaths() {
 const { title, text, galleryImages } = Astro.props;
 ---
 <MainLayout>
-  <div class="flex w-full justify-center items-center md:mt-20 xs:px-4 xs:mt-10">
-    <div class="md:w-3/4 flex items-center justify-center xs:w-full">
-    <div class="w-full">
-      <div class="flex md:w-1/4 flex-col xs:w-full">
-      <Headline>
-        {title}
-      </Headline>
-      <div class="border-t border-slate-400 mt-0">&nbsp;</div>
-      </div>
-      <p class="mt-2 text-xl text-text-primary">{text}</p>
-      <div class="mt-8 mb-24">
-        <GalleryModule imagesArray={galleryImages} slidesPerView={3} autoplay={false} gridView={true} showExpandIcon={false} client:load />
-      </div>
-    </div>
-    </div>
-  </div>
+  <ProductContent title={title} text={text} galleryImages={galleryImages} client:load />
 </MainLayout>
