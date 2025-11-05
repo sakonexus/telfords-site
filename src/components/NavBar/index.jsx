@@ -10,7 +10,6 @@ import MobileNavLink from './MobileNavLink';
 const Navbar = ({ homePage = false, logoImg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sections, setSections] = useState({});
-  const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleSection = (e) => {

@@ -5,7 +5,13 @@ import ContactModule from '@components/HomePage/ContactModule';
 import GalleryModule from '@components/GalleryModule';
 import Headline from '@components/Headline';
 
-const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
+const HomePage = ({
+  heroImgs,
+  homeImgs,
+  homeGallery,
+  historicImages,
+  pageDiv,
+}) => {
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
@@ -59,7 +65,7 @@ const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
           <ContactModule />
         </div>
         <div className="flex flex-col justify-center items-center">
-          <section className="flex justify-center items-center w-full pt-12 max-w-7xl">
+          <section className="flex justify-center items-center w-full pt-24 max-w-7xl">
             <TwoColumn
               module1={LoungeModule1}
               module2={LoungeModule2}
@@ -67,7 +73,7 @@ const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
               containerClasses=""
             />
           </section>
-          <section className="flex justify-center items-center w-full pt-18 max-w-7xl">
+          <section className="flex justify-center items-center w-full pt-24 max-w-7xl">
             <TwoColumn
               module1={SelectionModule1}
               module2={SelectionModule2}
@@ -76,7 +82,7 @@ const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
             />
           </section>
         </div>
-        <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full mt-18 max-w-7xl md:px-0 xs:px-4">
+        <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full mt-24 max-w-7xl md:px-0 xs:px-4">
           <div className="flex flex-col md:items-center xs:items-start">
             <Headline>
               Experience the <br className="md:hidden xs:block" />
@@ -95,7 +101,7 @@ const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
               to inspire collectors and enthusiasts&nbsp;alike.
             </p>
           </div>
-          <div className="flex w-full my-8">
+          <div className="flex w-full mt-8 mb-24">
             <GalleryModule
               imagesArray={historicImages}
               slidesPerView={2}
