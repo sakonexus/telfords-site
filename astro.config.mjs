@@ -19,4 +19,7 @@ export default defineConfig({
       },
     },
   },
+  redirects: {
+    '/products': '/products/pipes',
+  },
 });

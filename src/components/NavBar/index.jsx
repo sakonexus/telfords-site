@@ -10,6 +10,7 @@ import MobileNavLink from './MobileNavLink';
 const Navbar = ({ homePage = false, logoImg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sections, setSections] = useState({});
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleSection = (e) => {
@@ -71,7 +72,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
       }`}
     >
       <div
-        className={`${heroVisible === true ? 'p-4' : 'px-4 py-1'} ${
+        className={`${heroVisible === true ? 'p-2' : 'px-4 py-1'} ${
           homePage ? 'items-center' : 'items-end'
         } max-w-7xl mx-auto flex justify-between transition-all duration-300`}
       >
@@ -109,7 +110,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                 className="group relative"
               >
                 <a
-                  href={link.href}
+                  href={link.name == 'Products' ? '#' : link.href}
                   className={`${
                     homePage
                       ? 'text-cream hover:text-hover-cream'
@@ -199,7 +200,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                   <MobileNavLink
                     onClick={() => setIsOpen(false)}
                     index={index}
-                    link={link.href}
+                    link={link.name == 'Products' ? '#' : link.href}
                   >
                     {link.name}
                   </MobileNavLink>
