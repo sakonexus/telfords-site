@@ -17,7 +17,7 @@ export default function ProductContent({
             <Headline>{title}</Headline>
             <div className="border-t border-slate-400 mt-0">&nbsp;</div>
           </div>
-          <p className="mt-2 text-xl text-text-primary">{text}</p>
+          <p className="mt-2 text-lg text-text-primary">{text}</p>
           <div className="mt-8 mb-24">
             <GalleryModule
               imagesArray={galleryImages}
