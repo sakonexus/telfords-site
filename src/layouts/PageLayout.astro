@@ -24,6 +24,8 @@ const bannerisActive = bannerData.active && isWithinDateRange
 
 const bannerCookie = Astro.cookies.get('siteBanner');
 const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
+
+const isHomePage = Astro.url.pathname == '/';
 ---
 <html lang="en">
   <head>
@@ -35,14 +37,17 @@ const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
   <body class="w-full">
     <NavBar logoImg={logoImage} homePage={false} client:load  />
     {
-      bannerisActive && bannerDisplay ? <SiteBanner initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
+      bannerisActive && bannerDisplay ? <SiteBanner isHomePage={isHomePage} initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
     }
     <main class={`bg-cream`}>
+      {
+        !isHomePage && <div class="sm:mt-16 xs:mt-8">&nbsp;</div>
+      }
       <slot />
       {
         !bannerDisplay && bannerisActive && <BannerMinimized bannerData={bannerData} client:load />
       }
-      <!-- <Footer client:load  /> -->
+      <Footer client:load  />
     </main>
   </body>
 </html>

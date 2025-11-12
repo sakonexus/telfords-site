@@ -1,4 +1,3 @@
-// sanity/schemas/events.js
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
@@ -26,13 +25,13 @@ export default defineType({
       name: 'startDate',
       title: 'Start Date',
       type: 'datetime',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.optional(),
     }),
     defineField({
       name: 'endDate',
       title: 'End Date',
       type: 'datetime',
-      validation: (Rule) => Rule.optional(), // optional field
+      validation: (Rule) => Rule.optional(),
     }),
     defineField({
       name: 'description',
@@ -44,7 +43,7 @@ export default defineType({
       title: 'Event Image',
       type: 'image',
       options: {
-        hotspot: true, // allows cropping/focus
+        hotspot: true,
       },
     }),
   ],

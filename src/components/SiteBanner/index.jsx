@@ -16,10 +16,8 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
     buttonTextColor,
   } = bannerData;
 
-  // console.log('banner content', bannerData);
-
   const closeBanner = () => {
-    cookies.set('siteBanner', 'false'); // persist dismissal for 30 days
+    cookies.set('siteBanner', 'false');
     setBannerStatus(false);
   };
 
