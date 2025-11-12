@@ -10,10 +10,13 @@ const bannerQuery = `*[_type == "siteBanner" && active == true][0]{
   },
   backgroundColor,
   textColor,
+  buttonColor,
+  buttonTextColor,
   buttonText,
   buttonUrl,
   startDate,
-  endDate
+  endDate,
+  active
 }`;
 
 export async function getSiteBanner() {

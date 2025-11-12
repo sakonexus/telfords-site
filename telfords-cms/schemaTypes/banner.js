@@ -62,6 +62,16 @@ export default defineType({
       type: 'color',
     }),
     defineField({
+      name: 'buttonColor',
+      title: 'Button Color',
+      type: 'color',
+    }),
+    defineField({
+      name: 'buttonTextColor',
+      title: 'Button Text Color',
+      type: 'color',
+    }),
+    defineField({
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',

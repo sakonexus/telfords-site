@@ -5,8 +5,15 @@ import ContactModule from '@components/HomePage/ContactModule';
 import GalleryModule from '@components/GalleryModule';
 import Headline from '@components/Headline';
 import BusinessReview from '@components/BusinessReview';
+import Navbar from '@components/NavBar';
 
-const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
+const HomePage = ({
+  heroImgs,
+  homeImgs,
+  homeGallery,
+  historicImages,
+  logoImage,
+}) => {
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
@@ -53,73 +60,76 @@ const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
   );
 
   return (
-    <div className="flex flex-col w-full justify-center items-center bg-cream">
-      <Hero heroImgs={heroImgs} />
-      <div className="flex flex-col w-full items-center">
-        <div className="bg-section w-full">
-          <ContactModule />
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
-            <TwoColumn
-              module1={LoungeModule1}
-              module2={LoungeModule2}
-              dir="ltr"
-              containerClasses=""
-            />
-          </section>
-          <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
-            <TwoColumn
-              module1={SelectionModule1}
-              module2={SelectionModule2}
-              dir="rtl"
-              containerClasses=""
-            />
-          </section>
-        </div>
-        <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
-          <div className="flex flex-col md:items-center xs:items-start">
-            <Headline>
-              Experience the <br className="md:hidden xs:block" />
-              Heritage of&nbsp;Tobacco
-            </Headline>
-            <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
-              &nbsp;
-            </div>
-            <p className="font-Baskerville sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
-              Our shop is home to a curated collection of historic pipes,
-              cigars, and tobacco accessories, each telling a story of
-              craftsmanship, tradition, and refinement. From rare vintage pieces
-              to iconic designs that have shaped the industry, every item on
-              display offers a glimpse into the rich legacy of tobacco culture.
-              Explore these treasures and experience the heritage that continues
-              to inspire collectors and enthusiasts&nbsp;alike.
-            </p>
+    <div className="w-full">
+      <Navbar logoImg={logoImage} homePage={true} />
+      <div className="flex flex-col w-full justify-center items-center bg-cream">
+        <Hero heroImgs={heroImgs} />
+        <div className="flex flex-col w-full items-center">
+          <div className="bg-section w-full">
+            <ContactModule />
           </div>
-          <div className="flex w-full mt-8 sm:mb-24 xs:mb-12">
-            <GalleryModule
-              imagesArray={historicImages}
-              slidesPerView={2}
-              singleRow
-            />
+          <div className="flex flex-col justify-center items-center">
+            <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
+              <TwoColumn
+                module1={LoungeModule1}
+                module2={LoungeModule2}
+                dir="ltr"
+                containerClasses=""
+              />
+            </section>
+            <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
+              <TwoColumn
+                module1={SelectionModule1}
+                module2={SelectionModule2}
+                dir="rtl"
+                containerClasses=""
+              />
+            </section>
           </div>
-        </section>
-        <div className="justify-center flex w-full bg-section sm:py-18 xs:py-12">
-          <div className="w-full max-w-7xl justify-center">
-            <BusinessReview />
-          </div>
-        </div>
-        <div className="w-full flex flex-col items-center">
-          <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl md:px-0 xs:px-4">
-            <div className="w-full">
-              <Headline>Tradition of Excellence</Headline>
-            </div>
-            <div className="w-full">
-              <div className="mt-6">
-                <GalleryModule imagesArray={homeGallery} singleRow />
+          <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
+            <div className="flex flex-col md:items-center xs:items-start">
+              <Headline>
+                Experience the <br className="md:hidden xs:block" />
+                Heritage of&nbsp;Tobacco
+              </Headline>
+              <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
+                &nbsp;
               </div>
+              <p className="font-Baskerville sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
+                Our shop is home to a curated collection of historic pipes,
+                cigars, and tobacco accessories, each telling a story of
+                craftsmanship, tradition, and refinement. From rare vintage
+                pieces to iconic designs that have shaped the industry, every
+                item on display offers a glimpse into the rich legacy of tobacco
+                culture. Explore these treasures and experience the heritage
+                that continues to inspire collectors and enthusiasts&nbsp;alike.
+              </p>
+            </div>
+            <div className="flex w-full mt-8 sm:mb-24 xs:mb-12">
+              <GalleryModule
+                imagesArray={historicImages}
+                slidesPerView={2}
+                singleRow
+              />
             </div>
           </section>
+          <div className="justify-center flex w-full bg-section sm:py-18 xs:py-12">
+            <div className="w-full max-w-7xl justify-center">
+              <BusinessReview />
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-center">
+            <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl md:px-0 xs:px-4">
+              <div className="w-full">
+                <Headline>Tradition of Excellence</Headline>
+              </div>
+              <div className="w-full">
+                <div className="mt-6">
+                  <GalleryModule imagesArray={homeGallery} singleRow />
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>

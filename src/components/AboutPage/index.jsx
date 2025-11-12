@@ -2,7 +2,7 @@ import Headline from '@components/Headline';
 
 const AboutPage = ({ headerImg, ownersImg }) => {
   return (
-    <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-4 ">
+    <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-0 ">
       <div className="flex w-full max-w-7xl">
         <img
           src={headerImg.src}

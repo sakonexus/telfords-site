@@ -74,7 +74,7 @@ const GalleryModule = ({
               grid: {
                 rows: singleRow
                   ? 1
-                  : Math.ceil(imagesArray.length / slidesPerView + 1),
+                  : Math.ceil((imagesArray?.length || 0) / slidesPerView + 1),
               },
               autoplay: true,
             },
@@ -84,12 +84,12 @@ const GalleryModule = ({
               grid: {
                 rows: singleRow
                   ? 1
-                  : Math.ceil(imagesArray.length / slidesPerView + 1),
+                  : Math.ceil((imagesArray?.length || 0) / slidesPerView + 1),
               },
             },
           }}
         >
-          {imagesArray.map((slide, index) => (
+          {imagesArray?.map((slide, index) => (
             <SwiperSlide key={slide.id}>
               {showExpandIcon ? (
                 <div className="absolute bottom-2 right-2 z-20">
@@ -130,7 +130,7 @@ const GalleryModule = ({
                   thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
               }}
             >
-              {imagesArray.map((slide) => (
+              {imagesArray?.map((slide) => (
                 <SwiperSlide key={slide.id}>
                   <img
                     src={slide.src}
@@ -164,7 +164,7 @@ const GalleryModule = ({
                 },
               }}
             >
-              {imagesArray.map((slide, index) => (
+              {imagesArray?.map((slide, index) => (
                 <SwiperSlide key={slide.id}>
                   <img
                     src={slide.src}
