@@ -33,7 +33,7 @@ const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
   </head>
   <body class="w-full">
     {
-      bannerisActive && bannerDisplay ? <SiteBanner initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
+      bannerisActive && bannerDisplay ? <SiteBanner isHomePage={Astro.url.pathname == '/'} initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
     }
     {
       !bannerDisplay && bannerisActive && <BannerMinimized bannerData={bannerData} client:load />

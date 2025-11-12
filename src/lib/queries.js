@@ -28,3 +28,18 @@ export async function getSiteBanner() {
     return null;
   }
 }
+
+export async function getAllEvents() {
+  const query = `*[_type == "event"] | order(startDate asc){
+    _id,
+    title,
+    "slug": slug.current,
+    startDate,
+    endDate,
+    description,
+    "imageUrl": image.asset->url
+  }`;
+
+  const events = await sanity.fetch(query);
+  return events;
+}

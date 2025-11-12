@@ -33,17 +33,16 @@ const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
     <link rel="icon" type="image/x-icon" href="/favicon.jpg">
   </head>
   <body class="w-full">
+    <NavBar logoImg={logoImage} homePage={false} client:load  />
     {
       bannerisActive && bannerDisplay ? <SiteBanner initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
     }
-    
-    <NavBar logoImg={logoImage} homePage={false} client:load  />
-    <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16 bg-cream'}`}>
+    <main class={`bg-cream`}>
       <slot />
       {
-      !bannerDisplay && bannerisActive && <BannerMinimized bannerData={bannerData} client:load />
-    }
-      <Footer client:load  />
+        !bannerDisplay && bannerisActive && <BannerMinimized bannerData={bannerData} client:load />
+      }
+      <!-- <Footer client:load  /> -->
     </main>
   </body>
 </html>
