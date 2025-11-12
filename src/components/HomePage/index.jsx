@@ -6,13 +6,7 @@ import GalleryModule from '@components/GalleryModule';
 import Headline from '@components/Headline';
 import BusinessReview from '@components/BusinessReview';
 
-const HomePage = ({
-  heroImgs,
-  homeImgs,
-  homeGallery,
-  historicImages,
-  pageDiv,
-}) => {
+const HomePage = ({ heroImgs, homeImgs, homeGallery, historicImages }) => {
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>

@@ -102,6 +102,7 @@ const ReviewContent = () => {
           <div className="p-4 border border-gray-200 rounded-md shadow-sm bg-white h-full flex flex-col">
             <div className="pt-4 pr-4 absolute top-0 right-0">
               <img
+                alt={review.site + ' logo'}
                 src={`${review.site === 'google' ? GoogleIcon : YelpIcon}`}
                 className="w-6"
               />

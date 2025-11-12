@@ -11,6 +11,8 @@ import pipeWallImage from '@assets/hero-slider/pipe-wall.jpg';
 import loungeBoxesImage from '@assets/home/lounge-area-storage-boxes.jpg';
 import cigarWallImage from '@assets/home/wall-of-cigars-1.jpg';
 
+import { getSiteBanner } from '@src/lib/queries'
+
 const xikarImage = await getImage({ src: cigarImage });
 const storeImage = await getImage({ src: storefrontImage });
 const pipesImage = await getImage({ src: pipeWallImage });
@@ -129,6 +131,10 @@ const optimizedHistoryGallery = await Promise.all(
 		return { ...item, src: image. src};
 	})
 )
+
+const banner = await getSiteBanner()
+
+console.log('banner data', banner)
 ---
 
 <MainLayout>

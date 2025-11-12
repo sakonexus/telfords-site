@@ -24,9 +24,12 @@ const BusinessReview = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex md:flex-row gap-x-6 items-center sm:px-0 xs:px-4">
-        {reviewSiteData.map((reviewSite) => {
+        {reviewSiteData.map((reviewSite, index) => {
           return (
-            <div className="flex flex-col sm:w-fit p-4 bg-white rounded-md shadow-sm hover:bg-slate-50 transition-all duration-200 xs:items-stretch xs:w-full">
+            <div
+              key={reviewSite.name + index}
+              className="flex flex-col sm:w-fit p-4 bg-white rounded-md shadow-sm hover:bg-slate-50 transition-all duration-200 xs:items-stretch xs:w-full"
+            >
               <a target="_blank" href={reviewSite.url}>
                 <img
                   className="sm:w-28 rounded-md xs:w-18"
