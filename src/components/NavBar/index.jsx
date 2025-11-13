@@ -219,15 +219,15 @@ const Navbar = ({ homePage = false, logoImg }) => {
         >
           <div className="flex flex-col justify-between">
             <div>
-              <div className="flex justify-end p-4 items-baseline">
+              <div className="flex justify-end p-4 items-baseline absolute top-0 right-0">
                 <button
                   onClick={() => setIsOpen(false)}
                   aria-label="Close menu"
                 >
-                  <XMarkIcon className="h-8 w-8 stroke-text-muted" />
+                  <XMarkIcon className="h-6 w-6 stroke-text-muted" />
                 </button>
               </div>
-              <div className="flex flex-col px-6 space-y-4">
+              <div className="flex flex-col px-6 space-y-4 mt-4">
                 {links.map((link, index) => (
                   <div
                     className="flex flex-col"
