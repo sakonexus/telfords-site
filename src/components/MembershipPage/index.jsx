@@ -15,14 +15,15 @@ const MembershipPage = () => {
           <p className="text-md">
             In addition to the camaraderie of spending time with old friends and
             fine cigars, and access to the exclusive smoking lounge, Telford's
-            also offers Club Members a convivial atmosphere where you
-            can&nbsp;enjoy:
-          </p>
-
-          <p className="text-md pt-4">
-            As added value, there is reciprocity to many other lounges & clubs
+            also offers Club Members a convivial atmosphere where you can enjoy
+            curated beverages and premium cigars in an inviting, relaxed
+            setting. The Club also hosts exclusive events and gatherings
+            designed to celebrate community and shared&nbsp;passions.
+            <br />
+            <br />
+            As added value, there is reciprocity to many other lounges and clubs
             where you can enjoy our partnership privileges, which include
-            enjoying smoking&nbsp;indoors .
+            enjoying smoking&nbsp;indoors.
           </p>
         </div>
       </div>
