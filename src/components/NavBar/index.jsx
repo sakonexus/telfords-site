@@ -130,7 +130,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 relative">
+          <div className="hidden md:flex space-x-4 relative">
             {links.map((link) =>
               link.submenu ? (
                 <div
@@ -144,7 +144,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                       homePage && heroVisible
                         ? 'text-cream hover:text-hover-cream'
                         : 'text-text-primary hover:text-text-muted'
-                    } text-2xl tracking-wider transition-colors font-Bodina-Moda-SC`}
+                    } text-xl tracking-wider transition-colors font-Bodina-Moda-SC`}
                   >
                     {link.name}
                   </a>
@@ -183,7 +183,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                     homePage && heroVisible
                       ? 'text-cream hover:text-hover-cream'
                       : 'text-text-primary hover:text-text-muted'
-                  } text-2xl tracking-wider transition-colors font-Bodina-Moda-SC`}
+                  } text-xl tracking-wider transition-colors font-Bodina-Moda-SC`}
                 >
                   {link.name}
                 </a>
