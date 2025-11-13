@@ -104,7 +104,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
         <div
           className={`${heroVisible === true ? 'p-2' : 'px-4 py-1'} ${
             homePage ? 'items-center' : 'items-end'
-          } max-w-7xl mx-auto flex justify-between transition-all duration-300`}
+          } max-w-6xl mx-auto flex justify-between transition-all duration-300`}
         >
           <div className="flex flex-row justify-center items-end">
             <a href="/" aria-label="Home page">

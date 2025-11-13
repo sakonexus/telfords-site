@@ -31,7 +31,7 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
       }
          ${!bannerStatus ? 'hidden' : ''}`}
     >
-      <div className="relative w-full max-w-7xl">
+      <div className="relative w-full max-w-6xl">
         <div className="absolute top-0 right-0 sm:pr-0 xs:pr-4">
           <button
             className="rounded-full bg-white/50 p-1 z-99 hover:cursor-pointer"
@@ -43,7 +43,7 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
             />
           </button>
         </div>
-        <div className="flex sm:flex-row xs:flex-col w-full max-w-7xl justify-between sm:items-center xs:items-start sm:px-0 xs:px-4 xs:pt-4">
+        <div className="flex sm:flex-row xs:flex-col w-full max-w-6xl justify-between sm:items-center xs:items-start sm:px-0 xs:px-4 xs:pt-4">
           <PortableText
             value={message}
             components={{

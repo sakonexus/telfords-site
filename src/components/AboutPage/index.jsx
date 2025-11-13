@@ -3,14 +3,14 @@ import Headline from '@components/Headline';
 const AboutPage = ({ headerImg, ownersImg }) => {
   return (
     <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-0 ">
-      <div className="flex w-full max-w-7xl">
+      <div className="flex w-full max-w-6xl">
         <img
           src={headerImg.src}
           alt="Telford's Lounge Mural"
           className="w-full md:rounded-md xs:rounded-none"
         />
       </div>
-      <div className="flex flex-col ml-0 mt-8 xs:px-4 max-w-7xl">
+      <div className="flex flex-col ml-0 mt-8 xs:px-4 max-w-6xl">
         <Headline>Our story</Headline>
         <div className="border-t border-slate-400">&nbsp;</div>
         <div className="prose max-w-none">

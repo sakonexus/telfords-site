@@ -123,18 +123,21 @@ const HomePage = ({
     </div>
   );
 
-  const RewardsModule = (
+  const RewardsModule1 = (
     <div className="w-full">
       <h2 className="font-Lora text-3xl text-text-primary">
         Become a VIP Rewards&nbsp;Member
       </h2>
-      <p className="text-md mt-4">
+      <p className="text-lg mt-4">
         Join the Telford’s VIP Reward program and enjoy savings every time you
-        shop. Stop by today to claim your card and start earning rewards.
+        shop. Stop by today to claim your card and start earning&nbsp;rewards.
       </p>
-      <div className="flex justify-center">
-        <img src={RewardsCardImg} className="rounded-md w-1/2 mt-6" />
-      </div>
+    </div>
+  );
+
+  const RewardsModule2 = (
+    <div className="w-full flex items-center justify-center ml-12">
+      <img src={RewardsCardImg} className="rounded-lg w-full" />
     </div>
   );
 
@@ -148,7 +151,7 @@ const HomePage = ({
             <ContactModule />
           </div>
           <div className="flex flex-col justify-center items-center">
-            <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
+            <section className="flex justify-center items-center w-full sm:pt-24 max-w-6xl xs:pt-12">
               <TwoColumn
                 module1={LoungeModule1}
                 module2={LoungeModule2}
@@ -156,36 +159,14 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
-            <section className="w-screen bg-section flex justify-center py-12 mt-12">
-              <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4">
+            <section className="w-screen flex flex-col justify-center items-center py-12 mt-12">
+              <Headline>Join the Community</Headline>
+              <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4 mt-12">
                 <MarketingModule>{MarketingModule1}</MarketingModule>
                 <MarketingModule>{MarketingModule2}</MarketingModule>
               </div>
             </section>
-            {/* <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
-              <div className="flex flex-col md:items-center xs:items-start">
-                <Headline>Cabinet & Lounge&nbsp;Membership</Headline>
-                <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
-                  &nbsp;
-                </div>
-                <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
-                  Members enjoy exclusive access to our private lounge — a
-                  comfortable space with your own humidified cabinet next to our
-                  cozy leather seating by the fireplace. You’ll also receive
-                  special pricing on cigars and accessories, early access to
-                  rare releases, and shared privileges with partner lounges
-                  across the&nbsp;country.
-                </p>
-                <a
-                  href="/membership"
-                  className="font-Lora xs:text-lg sm:text-2xl underline sm:mt-4 xs:mt-0 md:ml-0 xs:ml-6"
-                  aria-label="Explore Club Membership"
-                >
-                  Explore Club Membership
-                </a>
-              </div>
-            </section> */}
-            <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
+            <section className="flex justify-center items-center w-full sm:pt-12 max-w-6xl xs:pt-12">
               <TwoColumn
                 module1={SelectionModule1}
                 module2={SelectionModule2}
@@ -195,26 +176,16 @@ const HomePage = ({
             </section>
           </div>
           <section className="w-screen bg-section flex justify-center py-12 mt-12">
-            <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4">
-              {RewardsModule}
+            <div className="w-full flex sm:flex-row max-w-2xl sm:px-0 xs:px-4">
+              <TwoColumn
+                module1={RewardsModule1}
+                module2={RewardsModule2}
+                dir="ltr"
+                containerClasses=""
+              />
             </div>
           </section>
-          {/* <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
-            <Headline>Golden Gate Pipe&nbsp;Club</Headline>
-            <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
-              &nbsp;
-            </div>
-            <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
-              Come join the camaraderie as we enjoy friendship, pipe lore, and
-              fine&nbsp;tobacco.
-            </p>
-            <p className="text-lg mt-4">
-              <strong>Date:</strong> 2nd&nbsp;Sunday of every month
-              <br />
-              <strong>Time:</strong> 6:30 PM - 8:00 PM
-            </p>
-          </section> */}
-          <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
+          <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-6xl md:px-0 xs:px-4 xs:mt-12">
             <div className="flex flex-col md:items-center xs:items-start">
               <Headline>
                 Experience the <br className="md:hidden xs:block" />
@@ -247,7 +218,7 @@ const HomePage = ({
             </div>
           </div>
           <div className="w-full flex flex-col items-center">
-            <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-7xl md:px-0 xs:px-4">
+            <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-6xl md:px-0 xs:px-4">
               <div className="w-full">
                 <Headline>Tradition of Excellence</Headline>
               </div>

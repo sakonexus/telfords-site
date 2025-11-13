@@ -25,7 +25,7 @@ const PricingTable = () => {
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center p-8 bg-white rounded-md shadow-dm hover:shadow-lg transition-shadow border border-neutral-400"
+            className="flex flex-col items-center text-center p-8 bg-white rounded-md shadow-dm hover:shadow-lg transition-shadow border border-neutral-300"
           >
             <h3 className="text-2xl font-bold mb-4 font-Lora">{plan.title}</h3>
             <p className="text-4xl font-extrabold mb-6 text-text-primary">

@@ -24,7 +24,7 @@ const BannerMinimized = ({ bannerData }) => {
 
   return (
     <div class="relative w-full">
-      <div class="flex max-w-7xl">
+      <div class="flex max-w-6xl">
         <div className="fixed bottom-0 left-0 p-4 z-[111]">
           <div
             ref={dialogRef}
