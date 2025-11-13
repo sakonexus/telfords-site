@@ -10,6 +10,7 @@ import MarketingModule from './MarketingModule';
 import PipeClubImg from '@assets/home/pipe-club.jpg?url';
 import MembershipImg1 from '@assets/home/membership-1.jpg?url';
 import MembershipImg2 from '@assets/home/membership-2.jpg?url';
+import RewardsCardImg from '@assets/home/vip-rewards-card.png?url';
 
 const HomePage = ({
   heroImgs,
@@ -122,6 +123,21 @@ const HomePage = ({
     </div>
   );
 
+  const RewardsModule = (
+    <div className="w-full">
+      <h2 className="font-Lora text-3xl text-text-primary">
+        Become a VIP Rewards&nbsp;Member
+      </h2>
+      <p className="text-md mt-4">
+        Join the Telford’s VIP Reward program and enjoy savings every time you
+        shop. Stop by today to claim your card and start earning rewards.
+      </p>
+      <div className="flex justify-center">
+        <img src={RewardsCardImg} className="rounded-md w-1/2 mt-6" />
+      </div>
+    </div>
+  );
+
   return (
     <div className="w-full">
       <Navbar logoImg={logoImage} homePage={true} />
@@ -178,6 +194,11 @@ const HomePage = ({
               />
             </section>
           </div>
+          <section className="w-screen bg-section flex justify-center py-12 mt-12">
+            <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4">
+              {RewardsModule}
+            </div>
+          </section>
           {/* <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
             <Headline>Golden Gate Pipe&nbsp;Club</Headline>
             <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
