@@ -1,10 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 const Hero = ({ heroImgs }) => {
   const ref = useRef(null);
@@ -69,7 +65,7 @@ const Hero = ({ heroImgs }) => {
         ))}
       </Swiper>
 
-      <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/40">
+      <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/50">
         <div className="relative w-full flex justify-center items-center px-4 flex-col">
           <svg
             viewBox="0 0 900 600"
@@ -100,7 +96,7 @@ const Hero = ({ heroImgs }) => {
               fill="white"
               fontSize="58"
               textAnchor="middle"
-              className="text-7xl font-Baskerville fill-[var(--color-cream)]"
+              className="text-7xl font-Lora fill-[var(--color-cream)]"
             >
               Pipe & Cigar, <tspan fontSize="46">inc.</tspan>
             </text>
@@ -110,7 +106,7 @@ const Hero = ({ heroImgs }) => {
               fill="white"
               fontSize="22"
               textAnchor="middle"
-              className="text-5xl font-Baskerville fill-[var(--color-cream)]"
+              className="text-5xl font-Lora fill-[var(--color-cream)]"
             >
               Est. 1970
             </text>

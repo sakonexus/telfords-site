@@ -1,5 +1,5 @@
 ---
-import MainLayout from '@layouts/MainLayout.astro'
+import HomeLayout from '@layouts/HomeLayout.astro'
 import HomePage from '@components/HomePage'
 import { getImage } from 'astro:assets';
 
@@ -7,6 +7,8 @@ import cigarImage from '@assets/hero-slider/xikar-cigar.jpg';
 import storefrontImage from '@assets/hero-slider/storefront-view.jpg';
 import pipeWallImage from '@assets/hero-slider/pipe-wall.jpg';
 
+import telfordsLogo from '@assets/Telfords-Character-Logo.png';
+const logoImage = await getImage({ src: telfordsLogo });
 
 import loungeBoxesImage from '@assets/home/lounge-area-storage-boxes.jpg';
 import cigarWallImage from '@assets/home/wall-of-cigars-1.jpg';
@@ -129,8 +131,10 @@ const optimizedHistoryGallery = await Promise.all(
 		return { ...item, src: image. src};
 	})
 )
+
+
 ---
 
-<MainLayout>
-	<HomePage historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[xikarImage, storeImage, pipesImage]} client:load />
-</MainLayout>
+<HomeLayout>
+	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[xikarImage, storeImage, pipesImage]} client:load />
+</HomeLayout>

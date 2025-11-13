@@ -2,19 +2,19 @@ import Headline from '@components/Headline';
 
 const AboutPage = ({ headerImg, ownersImg }) => {
   return (
-    <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-4 ">
-      <div className="flex w-full max-w-7xl">
+    <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-0 ">
+      <div className="flex w-full max-w-6xl">
         <img
           src={headerImg.src}
           alt="Telford's Lounge Mural"
           className="w-full md:rounded-md xs:rounded-none"
         />
       </div>
-      <div className="flex flex-col ml-0 mt-8 xs:px-4 max-w-7xl">
+      <div className="flex flex-col ml-0 mt-8 xs:px-4 max-w-6xl">
         <Headline>Our story</Headline>
         <div className="border-t border-slate-400">&nbsp;</div>
         <div className="prose max-w-none">
-          <p className="font-Baskerville text-lg">
+          <p className="font-Lora text-lg">
             Since 1970, Telford's Pipe & Cigar has grown into a
             2,730&#8209;square-foot haven for tobacco enthusiasts. For three
             generations, we have specialized in cigars, pipes, and luxury
@@ -34,13 +34,14 @@ const AboutPage = ({ headerImg, ownersImg }) => {
             alt="Susan and Brian Telford"
             className="md:float-right md:ml-12 md:mt-4 md:w-1/2 md:rounded-md xs:w-full xs:block xs:mt-4 xs:rounded-none"
           />
-          <p className="font-Baskerville text-lg pt-4">
+          <p className="font-Lora text-lg pt-4">
             We also offer a selection of luxury cigarettes free of additives. As
             one of only 80 elite tobacconists in the{' '}
             <a
               target="_blank"
               href="https://www.thetaa.org/"
               className="underline"
+              aria-label="Tobacconist Association of America"
             >
               Tobacconist Association of America ( TAA )
             </a>

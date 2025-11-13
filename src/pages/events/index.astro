@@ -1,0 +1,11 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import EventsPage from '@components/EventsPage';
+import { getAllEvents } from '@src/lib/queries';
+
+const eventsData = await getAllEvents();
+---
+
+<PageLayout>
+  <EventsPage eventsData={eventsData} />
+</PageLayout>

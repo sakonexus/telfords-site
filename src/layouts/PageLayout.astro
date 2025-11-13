@@ -1,0 +1,53 @@
+---
+export const prerender = false;
+import "../styles/global.css";
+import NavBar from '@components/NavBar';
+import Footer from '@components/Footer';
+import { getImage } from 'astro:assets';
+import telfordsLogo from '@assets/Telfords-Character-Logo.png';
+import SiteBanner from '@components/SiteBanner'
+import { getSiteBanner } from '@src/lib/queries'
+import BannerMinimized from '@components/SiteBanner/BannerMinimized'
+
+const logoImage = await getImage({ src: telfordsLogo });
+
+const bannerData = await getSiteBanner()
+
+const now = new Date()
+const bannerStartDate = bannerData.startDate ? new Date(bannerData.startDate) : null
+const bannerEndDate = bannerData.endDate ? new Date(bannerData.endDate) : null
+
+const isWithinDateRange =
+  (!bannerStartDate || now >= bannerStartDate) && (!bannerEndDate || now <= bannerEndDate)
+
+const bannerisActive = bannerData.active && isWithinDateRange
+
+const bannerCookie = Astro.cookies.get('siteBanner');
+const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
+
+const isHomePage = Astro.url.pathname == '/';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Telford's Pipe & Cigar</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.jpg">
+  </head>
+  <body class="w-full">
+    <NavBar logoImg={logoImage} homePage={false} client:load  />
+    {
+      bannerisActive && bannerDisplay ? <SiteBanner isHomePage={isHomePage} initialBannerStatus={bannerDisplay} bannerData={bannerData} client:load /> : null
+    }
+    <main class={`bg-cream`}>
+      {
+        !isHomePage && <div class="sm:mt-16 xs:mt-8">&nbsp;</div>
+      }
+      <slot />
+      {
+        !bannerDisplay && bannerisActive && <BannerMinimized bannerData={bannerData} client:load />
+      }
+      <Footer client:load  />
+    </main>
+  </body>
+</html>

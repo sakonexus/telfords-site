@@ -2,14 +2,14 @@ import React from 'react';
 
 const LoadingSpinner = () => {
   return (
-    <div class="pipe-spinner">
-      <div class="pipe">
-        <div class="bowl"></div>
-        <div class="stem"></div>
+    <div className="pipe-spinner">
+      <div className="pipe">
+        <div className="bowl"></div>
+        <div className="stem"></div>
       </div>
-      <div class="smoke smoke1"></div>
-      <div class="smoke smoke2"></div>
-      <div class="smoke smoke3"></div>
+      <div className="smoke smoke1"></div>
+      <div className="smoke smoke2"></div>
+      <div className="smoke smoke3"></div>
     </div>
   );
 };

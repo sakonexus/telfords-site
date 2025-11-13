@@ -8,10 +8,10 @@ const Footer = () => {
     <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 xs:px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8 w-fulll">
         <div className="flex flex-col text-center justify-center items-center">
-          <p className="text-xl font-semibold text-footer-text font-Baskerville">
+          <p className="text-xl font-semibold text-footer-text font-Lora">
             Telford&#8217;s Pipe & Cigar, Inc.
           </p>
-          <p className="text-sm text-footer-text mt-2 font-Baskerville tracking-wide leading-relaxed">
+          <p className="text-sm text-footer-text mt-2 font-Lora tracking-wide leading-relaxed">
             Marin County's largest tobacco provider for over 30&nbsp;years
           </p>
           <img
@@ -26,18 +26,21 @@ const Footer = () => {
           <a
             href="/"
             className="text-footer-text hover:text-hover-cream transition-colors"
+            aria-label="Home page"
           >
             Home
           </a>
           <a
             href="/about"
             className="text-footer-text hover:text-hover-cream transition-colors"
+            aria-label="Our story"
           >
             Our story
           </a>
           <a
             href="/products"
             className="text-footer-text hover:text-hover-cream transition-colors"
+            aria-label="Products"
           >
             Products
           </a>
@@ -75,6 +78,7 @@ const Footer = () => {
             target="_blank"
             href="https://www.yelp.com/biz/telfords-pipe-and-cigar-mill-valley"
             className="transition-transform transform hover:scale-110"
+            aria-label="Yelp"
           >
             <img alt="Yelp icon" src={yelpIcon} className="w-8 fill-cream" />
           </a>
@@ -82,6 +86,7 @@ const Footer = () => {
             target="_blank"
             href="https://www.google.com/maps/place/Telford's+Pipe+%26+Cigar/@37.8916338,-122.518484,17z/data=!4m8!3m7!1s0x80859ab5f9ec27b5:0xde2649a7d676aca2!8m2!3d37.8916296!4d-122.5159037!9m1!1b1!16s%2Fg%2F1v7tlm0j"
             className="transition-transform transform hover:scale-110"
+            aria-label="Google"
           >
             <img
               alt="Google icon"

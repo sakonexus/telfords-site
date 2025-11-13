@@ -7,6 +7,7 @@ import path from 'path';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  output: 'server',
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -16,6 +17,7 @@ export default defineConfig({
         '@hooks': path.resolve('./src/hooks'),
         '@data': path.resolve('./src/data'),
         '@assets': path.resolve('./src/assets'),
+        '@src': path.resolve('./src'),
       },
     },
   },

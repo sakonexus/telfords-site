@@ -10,7 +10,7 @@ export default function ProductContent({
   productPage = false,
 }) {
   return (
-    <div className="flex w-full justify-center items-center md:mt-20 xs:px-4 xs:mt-10">
+    <div className="flex w-full justify-center items-center xs:px-4 pt-10">
       <div className="md:w-3/4 flex items-center justify-center xs:w-full">
         <div className="w-full">
           <div className="flex md:w-1/4 flex-col xs:w-full">

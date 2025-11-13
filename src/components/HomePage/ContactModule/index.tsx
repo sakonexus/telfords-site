@@ -18,6 +18,7 @@ const ContactModule = () => {
           target="_blank"
           href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
           className="text-xl text-gray-900 tracking-wide underline xs:text-lg"
+          aria-label="Map address"
         >
           664 Redwood Highway Frontage Rd,
           <br />
@@ -38,12 +39,14 @@ const ContactModule = () => {
       <a
         href="tel:14153880440"
         className="bg-white p-4 rounded-full border border-gray-100 drop-shadow-md hover:cursor-pointer"
+        aria-label="Telford's Phone Number"
       >
         <PhoneIcon className="w-8" />
       </a>
       <a
         href="tel:14153880440"
         className="text-xl text-gray-900 tracking-wide underline pt-2"
+        aria-label="Telford's Phone Number"
       >
         415-388-0440
       </a>
