@@ -8,10 +8,10 @@ const Footer = () => {
     <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 xs:px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8 w-fulll">
         <div className="flex flex-col text-center justify-center items-center">
-          <p className="text-xl font-semibold text-footer-text font-Baskerville">
+          <p className="text-xl font-semibold text-footer-text font-Lora">
             Telford&#8217;s Pipe & Cigar, Inc.
           </p>
-          <p className="text-sm text-footer-text mt-2 font-Baskerville tracking-wide leading-relaxed">
+          <p className="text-sm text-footer-text mt-2 font-Lora tracking-wide leading-relaxed">
             Marin County's largest tobacco provider for over 30&nbsp;years
           </p>
           <img

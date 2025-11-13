@@ -64,6 +64,14 @@ const Navbar = ({ homePage = false, logoImg }) => {
       name: 'Events',
       href: '/events',
     },
+    {
+      name: 'Membership',
+      href: '/membership',
+    },
+    {
+      name: 'Pipe Club',
+      href: '/pipe-club',
+    },
   ];
 
   return (
@@ -99,7 +107,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                 heroVisible && homePage ? 'opacity-0' : 'opacity-100'
               } ml-2 transition-opacity duration-300`}
             >
-              <p className="font-Baskerville md:text-xl xs:text-md">
+              <p className="font-Lora md:text-xl xs:text-md">
                 Telford&#8217;s Pipe & Cigar, inc.
               </p>
             </div>

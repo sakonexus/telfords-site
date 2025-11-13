@@ -96,7 +96,7 @@ const Hero = ({ heroImgs }) => {
               fill="white"
               fontSize="58"
               textAnchor="middle"
-              className="text-7xl font-Baskerville fill-[var(--color-cream)]"
+              className="text-7xl font-Lora fill-[var(--color-cream)]"
             >
               Pipe & Cigar, <tspan fontSize="46">inc.</tspan>
             </text>
@@ -106,7 +106,7 @@ const Hero = ({ heroImgs }) => {
               fill="white"
               fontSize="22"
               textAnchor="middle"
-              className="text-5xl font-Baskerville fill-[var(--color-cream)]"
+              className="text-5xl font-Lora fill-[var(--color-cream)]"
             >
               Est. 1970
             </text>

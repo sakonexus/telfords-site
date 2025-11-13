@@ -18,7 +18,7 @@ const HomePage = ({
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
-      <p className="font-Baskerville sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
+      <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
         Step into a world of refined comfort where rich leather chairs, smooth
         jazz, and the warm glow of aged wood set the stage for meaningful
         conversation and camaraderie. Whether you're savoring a fine cigar or
@@ -41,7 +41,7 @@ const HomePage = ({
     <div className="flex flex-col md:ml-10 px-4 w-full xs:px-4">
       <Headline>For All Tastes</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
-      <p className="font-Baskerville sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
+      <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
         With the largest selection of cigars in California, you’ll be sure to
         find what you’re looking for and discover new favorites. Whether you’re
         a longtime aficionado or just getting started, our team is always ready
@@ -77,6 +77,28 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
+            <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
+              <div className="flex flex-col md:items-center xs:items-start">
+                <Headline>Cabinet & Lounge&nbsp;Membership</Headline>
+                <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
+                  &nbsp;
+                </div>
+                <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
+                  Members enjoy exclusive access to our private lounge — a
+                  comfortable space with your own humidified cabinet next to our
+                  cozy leather seating by the fireplace. You’ll also receive
+                  special pricing on cigars and accessories, early access to
+                  rare releases, and shared privileges with partner lounges
+                  across the&nbsp;country.
+                </p>
+                <a
+                  href="/membership"
+                  className="font-Lora xs:text-lg sm:text-2xl underline sm:mt-4 xs:mt-0 md:ml-0 xs:ml-6"
+                >
+                  Explore Club Membership
+                </a>
+              </div>
+            </section>
             <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
               <TwoColumn
                 module1={SelectionModule1}
@@ -86,6 +108,20 @@ const HomePage = ({
               />
             </section>
           </div>
+          <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 xs:mt-12 sm:px-0 xs:px-4">
+            <Headline>Golden Gate Pipe&nbsp;Club</Headline>
+            <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
+              &nbsp;
+            </div>
+            <p>
+              The Golden Gate Pipe Club meets on the 2nd&nbsp;Sunday of every
+              month. Come join the camaraderie as we enjoy friendship, pipe
+              lore, and fine&nbsp;tobacco.
+            </p>
+            <p className="text-lg mt-4">
+              <strong>Time:</strong> 6:30 PM - 8:00 PM
+            </p>
+          </section>
           <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
             <div className="flex flex-col md:items-center xs:items-start">
               <Headline>
@@ -95,7 +131,7 @@ const HomePage = ({
               <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
                 &nbsp;
               </div>
-              <p className="font-Baskerville sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
+              <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
                 Our shop is home to a curated collection of historic pipes,
                 cigars, and tobacco accessories, each telling a story of
                 craftsmanship, tradition, and refinement. From rare vintage
