@@ -4,10 +4,13 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
   output: 'server',
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -21,7 +24,10 @@ export default defineConfig({
       },
     },
   },
+
   redirects: {
     '/products': '/products/pipes',
   },
+
+  adapter: netlify(),
 });
