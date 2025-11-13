@@ -66,6 +66,7 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'underline', color: 'inherit' }}
+                    aria-label={children + ' ' + 'link'}
                   >
                     {children}
                   </a>
@@ -81,6 +82,7 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
           {buttonText && buttonUrl && (
             <div className="flex pr-12 sm:pt-0 xs:pt-4">
               <a
+                aria-label={buttonText}
                 href={buttonUrl}
                 style={{
                   backgroundColor: buttonColor.hex || '#155dfc',

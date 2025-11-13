@@ -2,6 +2,7 @@ import React from 'react';
 import YelpLogo from '@assets/review/yelp_logo.svg?url';
 import GoogleLogo from '@assets/review/google-logo.svg?url';
 import ReviewContent from './ReviewContent';
+import { StarIcon } from '@heroicons/react/24/outline';
 
 const reviewSiteData = [
   {
@@ -23,14 +24,18 @@ const reviewSiteData = [
 const BusinessReview = () => {
   return (
     <div className="flex w-full flex-col">
-      <div className="flex md:flex-row gap-x-6 items-center sm:px-0 xs:px-4">
+      <div className="flex md:flex-row gap-x-6 sm:px-0 xs:px-4 items-stretch">
         {reviewSiteData.map((reviewSite, index) => {
           return (
             <div
               key={reviewSite.name + index}
               className="flex flex-col sm:w-fit p-4 bg-white rounded-md shadow-sm hover:bg-slate-50 transition-all duration-200 xs:items-stretch xs:w-full"
             >
-              <a target="_blank" href={reviewSite.url}>
+              <a
+                target="_blank"
+                href={reviewSite.url}
+                aria-label={reviewSite.name + ' ' + 'link'}
+              >
                 <img
                   className="sm:w-28 rounded-md xs:w-18"
                   src={reviewSite.logo}
@@ -40,9 +45,19 @@ const BusinessReview = () => {
                   <div className="flex flex-row">
                     <p className="sm:text-lg xs:text-md">{reviewSite.rating}</p>
                     &nbsp;
-                    <p className="text-yellow-500 sm:text-xl xs:text-md">
-                      ★★★★⯪
-                    </p>
+                    <div className="flex flex-row text-amber-400 items-center">
+                      {/* ★★★★⯪ */}
+                      <StarIcon className="w-4 fill-amber-400" />
+                      <StarIcon className="w-4 fill-amber-400" />
+                      <StarIcon className="w-4 fill-amber-400" />
+                      <StarIcon className="w-4 fill-amber-400" />
+                      <div className="relative w-4 h-4">
+                        <StarIcon className="absolute w-4 h-4 text-amber-400" />
+                        <div className="absolute overflow-hidden w-1/2 h-full">
+                          <StarIcon className="w-4 h-4 text-amber-40 fill-amber-400" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <p className="sm:ml-2 sm:text-lg underline xs:text-md xs:ml-0">
                     {reviewSite.numReviews}+&nbsp;reviews

@@ -45,6 +45,7 @@ const BannerMinimized = ({ bannerData }) => {
                     link: ({ value, children }) => (
                       <a
                         href={value?.href}
+                        aria-label={children + ' ' + 'link'}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
@@ -68,6 +69,7 @@ const BannerMinimized = ({ bannerData }) => {
               <a
                 href={buttonUrl}
                 className="underline text-blue-600 font-semibold"
+                aria-label={buttonText}
               >
                 {buttonText}
               </a>
@@ -75,9 +77,9 @@ const BannerMinimized = ({ bannerData }) => {
           </div>
           <button
             onClick={() => setOpenDialog((prev) => !prev)}
-            className="flex justify-center items-center rounded-full bg-footer w-8 h-8 shadow-sm p-1"
+            className="flex justify-center items-center rounded-full bg-footer w-10 h-10 shadow-sm p-1 hover:cursor-pointer"
           >
-            <InformationCircleIcon className="w-6 h-6 stroke-white" />
+            <InformationCircleIcon className="w-8 h-8 stroke-white" />
           </button>
         </div>
       </div>

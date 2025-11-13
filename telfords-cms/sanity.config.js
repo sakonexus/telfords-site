@@ -7,7 +7,6 @@ import {colorInput} from '@sanity/color-input'
 export default defineConfig({
   name: 'default',
   title: 'telfords-cms',
-
   projectId: 'a50rlj7d',
   dataset: 'production',
 

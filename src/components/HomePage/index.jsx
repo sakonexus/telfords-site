@@ -6,6 +6,10 @@ import GalleryModule from '@components/GalleryModule';
 import Headline from '@components/Headline';
 import BusinessReview from '@components/BusinessReview';
 import Navbar from '@components/NavBar';
+import MarketingModule from './MarketingModule';
+import PipeClubImg from '@assets/home/pipe-club.jpg?url';
+import MembershipImg1 from '@assets/home/membership-1.jpg?url';
+import MembershipImg2 from '@assets/home/membership-2.jpg?url';
 
 const HomePage = ({
   heroImgs,
@@ -59,6 +63,65 @@ const HomePage = ({
     </div>
   );
 
+  const MarketingModule1 = (
+    <div className="w-full flex flex-col">
+      <h2 className="font-Lora text-text-primary text-3xl">
+        Cabinet & Lounge&nbsp;Membership
+      </h2>
+      <p className="text-md text-text-primary mt-4">
+        Members enjoy exclusive access to our private lounge — a comfortable
+        space with your own humidified cabinet next to our cozy leather seating
+        by the fireplace. You’ll also receive special pricing on cigars and
+        accessories, early access to rare releases, and shared privileges with
+        partner lounges across the&nbsp;country.
+      </p>
+      <a
+        href="/membership"
+        aria-label="Explore Club Membership"
+        className="underline sm:text-xl sm:mt-8 xs:mt-6 xs:text-lg text-text-primary"
+      >
+        Explore&nbsp;Club&nbsp;Membership
+      </a>
+      <div className="w-full flex flex-row justify-between md:mt-14 xs:mt-8 gap-x-4">
+        <div className="relative w-full">
+          <img
+            src={MembershipImg1}
+            alt="Lounge Member"
+            className="rounded-md object-cover w-full aspect-[4/3]"
+          />
+        </div>
+        <div className="relative w-full">
+          <img
+            src={MembershipImg2}
+            alt="Lounge Member"
+            className="rounded-md object-cover [object-position:50%_30%] w-full aspect-[4/3]"
+          />
+        </div>
+      </div>
+    </div>
+  );
+  const MarketingModule2 = (
+    <div className="w-full flex flex-col">
+      <h2 className="font-Lora text-text-primary text-3xl">
+        Golden Gate Pipe Club
+      </h2>
+      <p className="text-md text-text-primary mt-4">
+        Come join the camaraderie as we enjoy friendship, pipe lore, and
+        fine&nbsp;tobacco.
+      </p>
+      <p className="text-lg mt-4 text-text-primary">
+        <strong>Date:</strong> 2nd&nbsp;Sunday of every month
+        <br />
+        <strong>Time:</strong> 6:30 PM - 8:00 PM
+      </p>
+      <img
+        className="w-full mt-4 rounded-md"
+        src={PipeClubImg}
+        alt="Pipe Club members enjoying themselves"
+      />
+    </div>
+  );
+
   return (
     <div className="w-full">
       <Navbar logoImg={logoImage} homePage={true} />
@@ -77,7 +140,13 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
-            <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
+            <section className="w-screen bg-section flex justify-center py-12 mt-12">
+              <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4">
+                <MarketingModule>{MarketingModule1}</MarketingModule>
+                <MarketingModule>{MarketingModule2}</MarketingModule>
+              </div>
+            </section>
+            {/* <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
               <div className="flex flex-col md:items-center xs:items-start">
                 <Headline>Cabinet & Lounge&nbsp;Membership</Headline>
                 <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
@@ -94,11 +163,12 @@ const HomePage = ({
                 <a
                   href="/membership"
                   className="font-Lora xs:text-lg sm:text-2xl underline sm:mt-4 xs:mt-0 md:ml-0 xs:ml-6"
+                  aria-label="Explore Club Membership"
                 >
                   Explore Club Membership
                 </a>
               </div>
-            </section>
+            </section> */}
             <section className="flex justify-center items-center w-full sm:pt-24 max-w-7xl xs:pt-12">
               <TwoColumn
                 module1={SelectionModule1}
@@ -108,20 +178,21 @@ const HomePage = ({
               />
             </section>
           </div>
-          <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 xs:mt-12 sm:px-0 xs:px-4">
+          {/* <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
             <Headline>Golden Gate Pipe&nbsp;Club</Headline>
             <div className="border-t border-slate-400 mt-0 md:w-2/3 xs:w-full">
               &nbsp;
             </div>
-            <p>
-              The Golden Gate Pipe Club meets on the 2nd&nbsp;Sunday of every
-              month. Come join the camaraderie as we enjoy friendship, pipe
-              lore, and fine&nbsp;tobacco.
+            <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
+              Come join the camaraderie as we enjoy friendship, pipe lore, and
+              fine&nbsp;tobacco.
             </p>
             <p className="text-lg mt-4">
+              <strong>Date:</strong> 2nd&nbsp;Sunday of every month
+              <br />
               <strong>Time:</strong> 6:30 PM - 8:00 PM
             </p>
-          </section>
+          </section> */}
           <section className="flex flex-col justify-center items-center md:text-center xs:text-left w-full sm:mt-24 max-w-7xl md:px-0 xs:px-4 xs:mt-12">
             <div className="flex flex-col md:items-center xs:items-start">
               <Headline>
@@ -150,7 +221,7 @@ const HomePage = ({
             </div>
           </section>
           <div className="justify-center flex w-full bg-section sm:py-18 xs:py-12">
-            <div className="w-full max-w-7xl justify-center">
+            <div className="w-full max-w-6xl justify-center">
               <BusinessReview />
             </div>
           </div>

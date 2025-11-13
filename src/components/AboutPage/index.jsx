@@ -41,6 +41,7 @@ const AboutPage = ({ headerImg, ownersImg }) => {
               target="_blank"
               href="https://www.thetaa.org/"
               className="underline"
+              aria-label="Tobacconist Association of America"
             >
               Tobacconist Association of America ( TAA )
             </a>

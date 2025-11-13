@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Bars3Icon,
   XMarkIcon,
@@ -10,6 +10,7 @@ import MobileNavLink from './MobileNavLink';
 const Navbar = ({ homePage = false, logoImg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [sections, setSections] = useState({});
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleSection = (e) => {
@@ -17,18 +18,33 @@ const Navbar = ({ homePage = false, logoImg }) => {
       setSections((prev) => ({ ...prev, [id]: visible }));
     };
 
+    function handleClickOutside(event) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
     if (isOpen) {
       // Disable background scroll
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
       document.body.style.overflow = 'hidden';
     } else {
       // Re-enable scroll
       document.body.style.overflow = '';
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     }
 
     window.addEventListener('sectionVisible', handleSection);
 
     return () => {
       window.removeEventListener('sectionVisible', handleSection);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
       document.body.style.overflow = '';
     };
   }, [isOpen]);
@@ -91,7 +107,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
           } max-w-7xl mx-auto flex justify-between transition-all duration-300`}
         >
           <div className="flex flex-row justify-center items-end">
-            <a href="/">
+            <a href="/" aria-label="Home page">
               <img
                 src={logoImg.src}
                 className={`${
@@ -122,6 +138,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                   className="group relative"
                 >
                   <a
+                    aria-label="Products"
                     href={link.name == 'Products' ? '#' : link.href}
                     className={`${
                       homePage && heroVisible
@@ -141,6 +158,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                         <li key={`${'nav-' + sub.name + '-desktop'}`}>
                           <a
                             href={sub.href}
+                            aria-label={sub.name + ' ' + 'link'}
                             className={`block px-4 py-2 text-text-primary hover:bg-hover-cream transition-colors ${
                               index === 0
                                 ? 'rounded-tl-md rounded-tr-md'
@@ -159,6 +177,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
               ) : (
                 <a
                   key={`${'nav-' + link.name + '-desktop'}`}
+                  aria-label={link.name + ' ' + 'link'}
                   href={link.href}
                   className={`${
                     homePage && heroVisible
@@ -192,9 +211,11 @@ const Navbar = ({ homePage = false, logoImg }) => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed top-0 right-0 h-lvh w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden ${
+          ref={mobileMenuRef}
+          className={`fixed top-0 right-0 h-dvh w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden overflow-scroll ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          }
+          `}
         >
           <div className="flex flex-col justify-between">
             <div>
@@ -231,6 +252,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                                 <a
                                   className="pt-4 text-md"
                                   href={menuItem.href}
+                                  aria-label={menuItem.name + ' ' + 'link'}
                                 >
                                   {menuItem.name}
                                 </a>
@@ -250,6 +272,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
               <div className="flex flex-row items-baseline justify-start gap-x-2 space-y-8 pt-4">
                 <PhoneIcon className="w-6 fill-text-primary stroke-text-primary" />
                 <a
+                  aria-label="Telford's Phone Number"
                   href="tel:14153880440"
                   className="font-Bodina-Moda-SC text-md text-text-primary leading-1 pt-6"
                 >
@@ -262,6 +285,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                 </span>
                 <a
                   target="_blank"
+                  aria-label="Telford's Address"
                   href="https://maps.app.goo.gl/Rn2Woi6tL7kBUgwQ6"
                   className="font-Bodina-Moda-SC text-md text-text-primary tracking-wide ml-2"
                 >

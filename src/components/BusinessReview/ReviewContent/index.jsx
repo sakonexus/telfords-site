@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import GoogleIcon from '@assets/review/google-icon.svg?url';
 import YelpIcon from '@assets/review/yelp-icon.svg?url';
+import { StarIcon } from '@heroicons/react/24/outline';
 
 const allReviews = [
   {
@@ -99,7 +100,7 @@ const ReviewContent = () => {
     >
       {allReviews.map((review, index) => (
         <SwiperSlide key={index}>
-          <div className="p-4 border border-gray-200 rounded-md shadow-sm bg-white h-full flex flex-col">
+          <div className="p-4 border border-gray-200 rounded-md shadow-sm bg-white h-full flex flex-col ">
             <div className="pt-4 pr-4 absolute top-0 right-0">
               <img
                 alt={review.site + ' logo'}
@@ -123,7 +124,14 @@ const ReviewContent = () => {
               )}
               <div>
                 <p className="font-semibold">{review.name}</p>
-                <p className="text-yellow-500">{'★'.repeat(review.stars)}</p>
+                <div className="flex flex-row text-amber-400 items-center">
+                  {/* ★★★★⯪ */}
+                  <StarIcon className="w-4 fill-amber-400" />
+                  <StarIcon className="w-4 fill-amber-400" />
+                  <StarIcon className="w-4 fill-amber-400" />
+                  <StarIcon className="w-4 fill-amber-400" />
+                  <StarIcon className="w-4 fill-amber-400" />
+                </div>
               </div>
             </div>
             <p className="text-gray-700">{review.text}</p>
