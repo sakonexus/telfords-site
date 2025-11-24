@@ -31,7 +31,7 @@ const PricingTable = () => {
             <p className="text-4xl font-extrabold mb-6 text-text-primary">
               {plan.price}
             </p>
-            <p className="text-text-primary sm:px-0 xs:px-6">{plan.body}</p>
+            <p className="text-text-primary sm:px-0 xs:px-4">{plan.body}</p>
           </div>
         ))}
       </div>

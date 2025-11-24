@@ -3,9 +3,9 @@ import HomeLayout from '@layouts/HomeLayout.astro'
 import HomePage from '@components/HomePage'
 import { getImage } from 'astro:assets';
 
-import cigarImage from '@assets/hero-slider/xikar-cigar.jpg';
 import storefrontImage from '@assets/hero-slider/storefront-view.jpg';
 import pipeWallImage from '@assets/hero-slider/pipe-wall.jpg';
+import cigarStandImage from '@assets/hero-slider/cigar-on-stand.jpg';
 
 import telfordsLogo from '@assets/Telfords-Character-Logo.png';
 const logoImage = await getImage({ src: telfordsLogo });
@@ -13,9 +13,9 @@ const logoImage = await getImage({ src: telfordsLogo });
 import loungeBoxesImage from '@assets/home/lounge-area-storage-boxes.jpg';
 import cigarWallImage from '@assets/home/wall-of-cigars-1.jpg';
 
-const xikarImage = await getImage({ src: cigarImage });
 const storeImage = await getImage({ src: storefrontImage });
 const pipesImage = await getImage({ src: pipeWallImage });
+const cigarHeroImage = await getImage({ src: cigarStandImage });
 
 const wallOfCigarsImage = await getImage({ src: cigarWallImage });
 const loungeImage = await getImage({ src: loungeBoxesImage });
@@ -136,5 +136,5 @@ const optimizedHistoryGallery = await Promise.all(
 ---
 
 <HomeLayout>
-	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[xikarImage, storeImage, pipesImage]} client:load />
+	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[cigarHeroImage, storeImage, pipesImage]} client:load />
 </HomeLayout>

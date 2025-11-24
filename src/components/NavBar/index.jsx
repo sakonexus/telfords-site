@@ -86,7 +86,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
     },
     {
       name: 'Pipe Club',
-      href: '/pipe-club',
+      href: 'https://goldengatepipeclub.wordpress.com/',
     },
   ];
 

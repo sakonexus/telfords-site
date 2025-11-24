@@ -3,14 +3,15 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
+import sitemap from '@astrojs/sitemap';
 
 import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site: 'https://telfordspipeandcigar.com',
+  integrations: [react(), sitemap()],
   output: 'server',
-
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -24,10 +25,8 @@ export default defineConfig({
       },
     },
   },
-
   redirects: {
     '/products': '/products/pipes',
   },
-
   adapter: netlify(),
 });
