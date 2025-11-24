@@ -21,9 +21,11 @@ const MembershipPage = () => {
             designed to celebrate community and shared&nbsp;passions.
             <br />
             <br />
-            As added value, there is reciprocity to many other lounges and clubs
-            where you can enjoy our partnership privileges, which include
-            enjoying smoking&nbsp;indoors.
+            <span className="font-bold">Membership also includes:</span>
+            <br />
+            Reciprocity to many other lounges and clubs around the country where
+            you can enjoy our partnership privileges, which include enjoying
+            smoking&nbsp;indoors.
           </p>
         </div>
       </div>

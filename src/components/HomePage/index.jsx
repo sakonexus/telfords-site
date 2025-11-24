@@ -26,9 +26,11 @@ const HomePage = ({
       <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
         Step into a world of refined comfort where rich leather chairs, smooth
         jazz, and the warm glow of aged wood set the stage for meaningful
-        conversation and camaraderie. Whether you're savoring a fine cigar or
-        exploring new blends, our smoking lounge offers a sophisticated retreat
-        for those who appreciate quality and&nbsp;connection.
+        conversation and camaraderie. Access to our smoking lounge is available{' '}
+        <span className="underline">exclusively with a membership</span>,
+        offering a sophisticated retreat for savoring fine cigars, exploring new
+        blends, and connecting with others who appreciate quality
+        and&nbsp;connection.
       </p>
     </div>
   );
@@ -136,8 +138,8 @@ const HomePage = ({
   );
 
   const RewardsModule2 = (
-    <div className="w-full flex items-center justify-center ml-12">
-      <img src={RewardsCardImg} className="rounded-lg w-full" />
+    <div className="w-full flex items-center justify-center sm:ml-12 xs:ml-0 xs:mt-8">
+      <img src={RewardsCardImg} className="rounded-lg sm:w-full xs:w-72" />
     </div>
   );
 
@@ -159,14 +161,14 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
-            <section className="w-screen flex flex-col justify-center items-center py-12 mt-12">
+            <section className="w-screen flex flex-col justify-center items-center py-12 mt-4">
               <Headline>Join the Community</Headline>
-              <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4 mt-12">
+              <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4 mt-10">
                 <MarketingModule>{MarketingModule1}</MarketingModule>
                 <MarketingModule>{MarketingModule2}</MarketingModule>
               </div>
             </section>
-            <section className="flex justify-center items-center w-full sm:pt-12 max-w-6xl xs:pt-12">
+            <section className="flex justify-center items-center w-full sm:pt-12 max-w-6xl xs:pt-4">
               <TwoColumn
                 module1={SelectionModule1}
                 module2={SelectionModule2}
