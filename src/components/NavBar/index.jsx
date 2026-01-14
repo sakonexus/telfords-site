@@ -9,9 +9,11 @@ import {
 import MobileNavLink from './MobileNavLink';
 
 const Navbar = ({ homePage = false, logoImg }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openProductMenu, setOpenProductMenu] = useState(false);
+  const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
   const [sections, setSections] = useState({});
   const mobileMenuRef = useRef(null);
+  const desktopProductMenuRef = useRef(null);
 
   useEffect(() => {
     const handleSection = (e) => {
@@ -19,36 +21,59 @@ const Navbar = ({ homePage = false, logoImg }) => {
       setSections((prev) => ({ ...prev, [id]: visible }));
     };
 
-    function handleClickOutside(event) {
+    function handleClickOutsideMobileNav(event) {
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target)
       ) {
-        setIsOpen(false);
+        setMobileNavIsOpen(false);
       }
     }
 
-    if (isOpen) {
+    if (mobileNavIsOpen) {
       // Disable background scroll
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutsideMobileNav);
+      document.addEventListener('touchstart', handleClickOutsideMobileNav);
       document.body.style.overflow = 'hidden';
     } else {
       // Re-enable scroll
       document.body.style.overflow = '';
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutsideMobileNav);
+      document.removeEventListener('touchstart', handleClickOutsideMobileNav);
     }
 
     window.addEventListener('sectionVisible', handleSection);
 
     return () => {
       window.removeEventListener('sectionVisible', handleSection);
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutsideMobileNav);
+      document.removeEventListener('touchstart', handleClickOutsideMobileNav);
       document.body.style.overflow = '';
     };
-  }, [isOpen]);
+  }, [mobileNavIsOpen, openProductMenu]);
+
+  useEffect(() => {
+    function handleClickOutsideProductMenu(event) {
+      if (
+        openProductMenu &&
+        desktopProductMenuRef.current &&
+        !desktopProductMenuRef.current.contains(event.target)
+      ) {
+        setOpenProductMenu(false);
+      }
+    }
+
+    if (openProductMenu) {
+      document.addEventListener('pointerdown', handleClickOutsideProductMenu);
+    }
+
+    return () => {
+      document.removeEventListener(
+        'pointerdown',
+        handleClickOutsideProductMenu
+      );
+    };
+  }, [openProductMenu]);
 
   const heroVisible = sections['hero'] ?? true;
 
@@ -133,8 +158,10 @@ const Navbar = ({ homePage = false, logoImg }) => {
                 <div
                   key={`${'nav-' + link.name + '-desktop'}`}
                   className="group relative"
+                  ref={desktopProductMenuRef}
                 >
                   <a
+                    onClick={() => setOpenProductMenu((prev) => !prev)}
                     aria-label="Products"
                     href={link.name == 'Products' ? '#' : link.href}
                     className={`${
@@ -149,12 +176,17 @@ const Navbar = ({ homePage = false, logoImg }) => {
 
                   {/* Dropdown submenu */}
                   <div
-                    className={`absolute left-0 top-full hidden w-48 rounded-md bg-nav-bg shadow-md opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-200`}
+                    className={`absolute left-0 top-full w-48 rounded-md bg-nav-bg shadow-md transition-all duration-200 ${
+                      openProductMenu || 'md:group-hover:block hidden'
+                    } `}
                   >
                     <ul className="flex flex-col">
                       {link.submenu.map((sub, index) => (
                         <li key={`${'nav-' + sub.name + '-desktop'}`}>
                           <a
+                            onClick={() => {
+                              setOpenProductMenu(false);
+                            }}
                             href={sub.href}
                             aria-label={sub.name + ' ' + 'link'}
                             className={`block px-4 py-2 text-text-primary hover:bg-hover-cream transition-colors ${
@@ -192,7 +224,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
           {/* Mobile Hamburger */}
           <button
             className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setMobileNavIsOpen(!mobileNavIsOpen)}
             aria-label="Toggle menu"
           >
             <Bars3Icon
@@ -201,7 +233,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                   ? 'stroke-cream'
                   : 'stroke-text-muted'
               } h-8 w-8  transition-all duration-300 ${
-                isOpen ? 'opacity-0' : 'opacity-100'
+                mobileNavIsOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
           </button>
@@ -211,7 +243,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
         <div
           ref={mobileMenuRef}
           className={`fixed top-0 right-0 h-dvh w-64 bg-nav-bg shadow-md transform transition-transform duration-300 md:hidden overflow-scroll ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
+            mobileNavIsOpen ? 'translate-x-0' : 'translate-x-full'
           }
           `}
         >
@@ -219,7 +251,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
             <div>
               <div className="flex justify-end p-4 items-baseline absolute top-0 right-0">
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setMobileNavIsOpen(false)}
                   aria-label="Close menu"
                 >
                   <XMarkIcon className="h-6 w-6 stroke-text-muted" />
@@ -232,7 +264,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                     key={`${'nav-' + link.name + '-mobile'}`}
                   >
                     <MobileNavLink
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => setMobileNavIsOpen(false)}
                       index={index}
                       link={link.name == 'Products' ? '#' : link.href}
                     >

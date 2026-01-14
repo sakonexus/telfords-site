@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import Modal from '@components/Modal';
 import {
   CheckCircleIcon,
   ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 
-const NewsletterSignUp = ({ initialPopup }) => {
+const NewsletterSignUp = () => {
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
@@ -17,8 +16,6 @@ const NewsletterSignUp = ({ initialPopup }) => {
     submitted: false,
     failed: false,
   });
-
-  const [openModal, setOpenModal] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,83 +62,76 @@ const NewsletterSignUp = ({ initialPopup }) => {
   };
 
   return (
-    <Modal
-      isOpen={initialPopup ? initialPopup : openModal}
-      onClose={() => setOpenModal(false)}
-    >
-      <div className="flex flex-col p-8 w-full mt-8">
-        <div className="">
-          <h2 className="text-6xl font-MonteCarlo">
-            Sign up for our newsletter
-          </h2>
-          <p className="mt-4">
-            Stay informed about upcoming events, special offers, and more!
-          </p>
-        </div>
-        {submitStatus.submitted && !submitStatus.failed ? (
-          <div className="flex flex-col items-center justify-center my-12">
-            <CheckCircleIcon className="w-24 text-green-600 rounded-full" />
-            <p className="text-2xl">{submitStatus.message}</p>
-          </div>
-        ) : (
-          !submitStatus.submitted && (
-            <form
-              className="flex flex-col justify-center items-center mt-8"
-              onSubmit={handleSubmit}
-            >
-              <div className="w-full max-w-md">
-                <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-4 w-full">
-                  <label className="input-label self-end">Email*</label>
-                  <input
-                    className="input-field w-full"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-
-                  <label className="input-label self-end">First Name</label>
-                  <input
-                    className="input-field w-full"
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                  />
-
-                  <label className="input-label self-end">Last Name</label>
-                  <input
-                    className="input-field w-full"
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <button
-                  disabled={!isValidEmail(formData.email)}
-                  className={`${
-                    isValidEmail(formData.email)
-                      ? 'bg-[#8c2825] text-white hover:cursor-pointer hover:bg-[#a42f2b]'
-                      : 'bg-gray-400 text-text-primary hover:cursor-default'
-                  } w-72 text-xl rounded-sm px-8 py-4 font-semibold mt-8 transition-all duration-300`}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          )
-        )}
-        {submitStatus.submitted && submitStatus.failed && (
-          <div className="flex flex-col items-center justify-center my-12">
-            <ExclamationTriangleIcon className="w-24 text-red-600" />
-            <p className="text-xl font-bold">{submitStatus.message}</p>
-          </div>
-        )}
+    <div className="flex flex-col p-8 w-full mt-8 justify-center items-center">
+      <div className="text-center w-full">
+        <h2 className="text-6xl font-MonteCarlo">Sign up for our newsletter</h2>
+        <p className="mt-4">
+          Stay informed about upcoming events, special offers, and more!
+        </p>
       </div>
-    </Modal>
+      {submitStatus.submitted && !submitStatus.failed ? (
+        <div className="flex flex-col items-center justify-center my-12">
+          <CheckCircleIcon className="w-24 text-green-600 rounded-full" />
+          <p className="text-2xl">{submitStatus.message}</p>
+        </div>
+      ) : (
+        !submitStatus.submitted && (
+          <form
+            className="flex flex-col justify-center items-center mt-8 w-full"
+            onSubmit={handleSubmit}
+          >
+            <div className="flex flex-col justify-center items-center w-full max-w-md">
+              <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-4 w-full">
+                <label className="input-label self-end">Email*</label>
+                <input
+                  className="input-field w-full"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+
+                <label className="input-label self-end">First Name</label>
+                <input
+                  className="input-field w-full"
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+
+                <label className="input-label self-end">Last Name</label>
+                <input
+                  className="input-field w-full"
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <button
+                disabled={!isValidEmail(formData.email)}
+                className={`${
+                  isValidEmail(formData.email)
+                    ? 'bg-[#8c2825] text-white hover:cursor-pointer hover:bg-[#a42f2b]'
+                    : 'bg-gray-400 text-text-primary hover:cursor-default'
+                } w-72 text-xl rounded-sm px-8 py-4 font-semibold mt-8 transition-all duration-300`}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        )
+      )}
+      {submitStatus.submitted && submitStatus.failed && (
+        <div className="flex flex-col items-center justify-center my-12">
+          <ExclamationTriangleIcon className="w-24 text-red-600" />
+          <p className="text-xl font-bold">{submitStatus.message}</p>
+        </div>
+      )}
+    </div>
   );
 };
 

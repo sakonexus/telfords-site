@@ -7,7 +7,7 @@ import telfordsLogo from '@assets/Telfords-Character-Logo.png';
 import SiteBanner from '@components/SiteBanner'
 import { getSiteBanner } from '@src/lib/queries'
 import BannerMinimized from '@components/SiteBanner/BannerMinimized'
-import NewsletterSignUp from '@components/NewsletterSignUp';
+import NewsletterModal from '@components/NewsletterSignUp/NewsletterModal'
 
 const logoImage = await getImage({ src: telfordsLogo });
 
@@ -55,7 +55,7 @@ const isFirstVisit = Astro.locals.isFirstVisit;
     }
     <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16 bg-cream'}`}>
       <slot {...({ 'set:props': { logoImage } })} />
-      {isFirstVisit && <NewsletterSignUp initialPopup={isFirstVisit} client:load />}
+      <NewsletterModal initialPopup={isFirstVisit} client:load />
       <Footer client:load  />
     </main>
   </body>

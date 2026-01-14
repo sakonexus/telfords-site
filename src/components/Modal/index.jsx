@@ -47,7 +47,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         <div className="w-full flex justify-end">
           <button
             onClick={onClose}
-            className="z-[99] hover:cursor-pointer transition-all bg-cream durtation-200 rounded-full p-1 m-2 absolute opacity-60 hover:opacity-100"
+            className="z-[999] hover:cursor-pointer transition-all bg-cream durtation-200 rounded-full p-1 m-2 absolute opacity-60 hover:opacity-100"
           >
             <XMarkIcon className="w-7 h-7 stroke-text-primary" />
           </button>

@@ -65,9 +65,6 @@ const ContactModule = () => {
           containerClasses=""
         />
       </div>
-      <div>
-        <NewsletterSignUp />
-      </div>
     </div>
   );
 };
