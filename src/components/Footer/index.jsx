@@ -5,6 +5,8 @@ import yelpIcon from '@assets/review/yelp-logo-white.svg?url';
 import googleIcon from '@assets/review/google-logo-white.png?url';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="flex justify-center items-center flex-col w-full bg-footer py-10 xs:px-4">
       <div className="mx-auto flex flex-col justify-between items-center gap-8 w-fulll">
@@ -13,7 +15,8 @@ const Footer = () => {
             Telford&#8217;s Pipe & Cigar, Inc.
           </p>
           <p className="text-sm text-footer-text mt-2 font-Lora tracking-wide leading-relaxed">
-            Marin County's largest tobacco provider for over 30&nbsp;years
+            Marin County's largest tobacco provider for over{' '}
+            {currentYear - 1970 - 1}&nbsp;years
           </p>
           <div className="flex w-full items-center justify-center mt-6">
             <div className="flex flex-row bg-white p-4 sm:w-1/4 xs:w-5/6 gap-x-6 justify-center items-center rounded-md shadow-md border border-neutral-400">
@@ -102,8 +105,15 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
-      <div className="flex items-center justify-center md:w-1/4 mt-10 border-t border-[#D9CCC1] pt-4 text-center text-sm text-footer-text w-full">
+      <div className="mt-6">
+        <a
+          href="mailto:telfords@telfordspipeandcigar.com"
+          className=" text-cream"
+        >
+          telfords@telfordspipeandcigar.com
+        </a>
+      </div>
+      <div className="flex items-center justify-center md:w-1/4 mt-8 border-t border-[#D9CCC1] pt-4 text-center text-sm text-footer-text w-full">
         <p>
           © {new Date().getFullYear()} Telford&#8217;s Pipe & Cigar, Inc.
           <br />
