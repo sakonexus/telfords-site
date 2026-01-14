@@ -197,13 +197,13 @@ const HomePage = ({
                 &nbsp;
               </div>
               <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
-                Our shop is home to a curated collection of historic pipes,
-                cigars, and tobacco accessories, each telling a story of
-                craftsmanship, tradition, and refinement. From rare vintage
-                pieces to iconic designs that have shaped the industry, every
-                item on display offers a glimpse into the rich legacy of tobacco
-                culture. Explore these treasures and experience the heritage
-                that continues to inspire collectors and enthusiasts&nbsp;alike.
+                Our shop is home to a collection of historic pipes, cigars, and
+                tobacco accessories, each telling a story of craftsmanship,
+                tradition, and refinement. From rare vintage pieces to iconic
+                designs that have shaped the industry, every item on display
+                offers a glimpse into the rich legacy of tobacco culture.
+                Explore these treasures and experience the heritage that
+                continues to inspire collectors and enthusiasts&nbsp;alike.
               </p>
             </div>
             <div className="flex w-full mt-8 sm:mb-24 xs:mb-12">

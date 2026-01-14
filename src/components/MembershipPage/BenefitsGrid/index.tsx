@@ -27,12 +27,12 @@ const BenefitsGrid = () => {
     {
       icon: PricingIcon,
       title: 'Preferred Pricing',
-      body: 'Receive special discounts on premium cigars and curated accessories.',
+      body: 'Receive special discounts on premium cigars and select accessories.',
     },
     {
       icon: CoffeeIcon,
       title: 'Handcrafted Beverages',
-      body: 'Savor expertly crafted espresso, lattes, and cappuccinos while you relax.',
+      body: 'Savor fresh-brewed espresso, lattes, and cappuccinos while you relax.',
     },
     {
       icon: ExclusiveIcon,

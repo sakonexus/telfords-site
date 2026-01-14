@@ -16,9 +16,9 @@ const MembershipPage = () => {
             In addition to the camaraderie of spending time with old friends and
             fine cigars, and access to the exclusive smoking lounge, Telford's
             also offers Club Members a convivial atmosphere where you can enjoy
-            curated beverages and premium cigars in an inviting, relaxed
-            setting. The Club also hosts exclusive events and gatherings
-            designed to celebrate community and shared&nbsp;passions.
+            beverages and premium cigars in an inviting, relaxed setting. The
+            Club also hosts exclusive events and gatherings designed to
+            celebrate community and shared&nbsp;passions.
             <br />
             <br />
             <span className="font-bold">Membership also includes:</span>

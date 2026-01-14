@@ -18,8 +18,8 @@ const AboutPage = ({ headerImg, ownersImg, familyImg }) => {
             Since 1970, Telford's Pipe & Cigar has grown into a
             2,730&#8209;square-foot haven for tobacco enthusiasts. For three
             generations, we have specialized in cigars, pipes, and luxury
-            tobacco accessories, offering a curated experience for connoisseurs
-            and newcomers&nbsp;alike.
+            tobacco accessories, offering a thoughtfully designed experience for
+            connoisseurs and newcomers&nbsp;alike.
             <br />
             <br />
             Our collection boasts over 2,000 cigars, more than 1,000 new and
