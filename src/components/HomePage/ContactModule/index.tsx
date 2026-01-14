@@ -2,6 +2,7 @@ import React from 'react';
 import { PhoneIcon, BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 import TwoColumn from '@components/TwoColumn';
 import Headline from '@components/Headline';
+import NewsletterSignUp from '@components/NewsletterSignUp';
 
 const ContactModule = () => {
   const Module1 = (
@@ -63,6 +64,9 @@ const ContactModule = () => {
           dir="ltr"
           containerClasses=""
         />
+      </div>
+      <div>
+        <NewsletterSignUp />
       </div>
     </div>
   );

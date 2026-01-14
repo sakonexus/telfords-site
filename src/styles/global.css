@@ -133,3 +133,10 @@ h3 {
     opacity: 0;
   }
 }
+
+.input-label {
+  @apply text-lg text-text-primary font-semibold;
+}
+.input-field {
+  @apply bg-white text-text-primary border-2 border-text-primary rounded-sm ml-2 px-2 py-1;
+}
