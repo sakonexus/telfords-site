@@ -170,7 +170,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                         : 'text-text-primary hover:text-text-muted'
                     } text-xl tracking-wider transition-colors font-Bodina-Moda-SC flex flex-row items-end`}
                   >
-                    {link.name}&nbsp;
+                    {link.name}
                     <ChevronDownIcon className="w-6" />
                   </a>
 
