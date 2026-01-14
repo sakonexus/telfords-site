@@ -22,7 +22,6 @@ export const onRequest = defineMiddleware(({ cookies, locals }, next) => {
     );
   }
 
-  // 🔑 expose FIRST-VISIT STATE
   locals.isFirstVisit = isFirstVisit;
 
   return next();

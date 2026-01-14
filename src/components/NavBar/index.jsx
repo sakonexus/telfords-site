@@ -4,6 +4,7 @@ import {
   XMarkIcon,
   PhoneIcon,
   BuildingStorefrontIcon,
+  ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import MobileNavLink from './MobileNavLink';
 
@@ -84,10 +85,6 @@ const Navbar = ({ homePage = false, logoImg }) => {
       name: 'Membership',
       href: '/membership',
     },
-    {
-      name: 'Pipe Club',
-      href: 'https://goldengatepipeclub.wordpress.com/',
-    },
   ];
 
   return (
@@ -144,9 +141,10 @@ const Navbar = ({ homePage = false, logoImg }) => {
                       homePage && heroVisible
                         ? 'text-cream hover:text-hover-cream'
                         : 'text-text-primary hover:text-text-muted'
-                    } text-xl tracking-wider transition-colors font-Bodina-Moda-SC`}
+                    } text-xl tracking-wider transition-colors font-Bodina-Moda-SC flex flex-row items-end`}
                   >
-                    {link.name}
+                    {link.name}&nbsp;
+                    <ChevronDownIcon className="w-6" />
                   </a>
 
                   {/* Dropdown submenu */}
