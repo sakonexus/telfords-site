@@ -115,7 +115,7 @@ const GalleryModule = ({
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="flex flex-col w-full">
-          <div className="flex flex-col justify-center items-center w-full">
+          <div className="flex flex-col justify-center items-center w-full mt-16">
             <Swiper
               modules={[A11y, Thumbs]}
               navigation

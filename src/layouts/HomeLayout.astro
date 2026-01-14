@@ -55,7 +55,7 @@ const isFirstVisit = Astro.locals.isFirstVisit;
     }
     <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16 bg-cream'}`}>
       <slot {...({ 'set:props': { logoImage } })} />
-      <NewsletterModal initialPopup={isFirstVisit} client:load />
+      {isFirstVisit && <NewsletterModal initialPopup={isFirstVisit} client:load />}
       <Footer client:load  />
     </main>
   </body>

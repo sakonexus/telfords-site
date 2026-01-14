@@ -11,6 +11,7 @@ import PipeClubImg from '@assets/home/pipe-club.jpg?url';
 import MembershipImg1 from '@assets/home/membership-1.jpg?url';
 import MembershipImg2 from '@assets/home/membership-2.jpg?url';
 import RewardsCardImg from '@assets/home/vip-rewards-card.png?url';
+import NewsletterSignUp from '@components/NewsletterSignUp';
 
 const HomePage = ({
   heroImgs,
@@ -161,7 +162,7 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
-            <section className="w-screen flex flex-col justify-center items-center py-12 mt-4">
+            <section className="w-full flex flex-col justify-center items-center py-12 mt-4">
               <Headline>Join the Community</Headline>
               <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4 mt-10">
                 <MarketingModule>{MarketingModule1}</MarketingModule>
@@ -177,7 +178,7 @@ const HomePage = ({
               />
             </section>
           </div>
-          <section className="w-screen bg-section flex justify-center py-12 mt-12">
+          <section className="w-full bg-section flex justify-center py-12 mt-12">
             <div className="w-full flex sm:flex-row max-w-2xl sm:px-0 xs:px-4">
               <TwoColumn
                 module1={RewardsModule1}
@@ -220,7 +221,7 @@ const HomePage = ({
             </div>
           </div>
           <div className="w-full flex flex-col items-center">
-            <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-6xl md:px-0 xs:px-4">
+            <section className="flex w-full flex-col justify-center items-center pt-12 pb-12 max-w-6xl md:px-0 xs:px-4">
               <div className="w-full">
                 <Headline>Tradition of Excellence</Headline>
               </div>
@@ -229,6 +230,11 @@ const HomePage = ({
                   <GalleryModule imagesArray={homeGallery} singleRow />
                 </div>
               </div>
+            </section>
+          </div>
+          <div className="bg-section w-full flex flex-col items-center">
+            <section className="flex w-full flex-col justify-center items-center pb-12 max-w-6xl md:px-0 xs:px-4">
+              <NewsletterSignUp />
             </section>
           </div>
         </div>

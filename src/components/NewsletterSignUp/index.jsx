@@ -62,11 +62,13 @@ const NewsletterSignUp = () => {
   };
 
   return (
-    <div className="flex flex-col p-8 w-full mt-8 justify-center items-center">
+    <div className="flex flex-col p-8 w-full mt-8 justify-center items-center xs:p-4">
       <div className="text-center w-full">
-        <h2 className="text-6xl font-MonteCarlo">Sign up for our newsletter</h2>
+        <h2 className="text-6xl font-MonteCarlo">
+          Sign up for our&nbsp;newsletter
+        </h2>
         <p className="mt-4">
-          Stay informed about upcoming events, special offers, and more!
+          Stay informed about upcoming events, special offers, and&nbsp;more!
         </p>
       </div>
       {submitStatus.submitted && !submitStatus.failed ? (
@@ -111,6 +113,9 @@ const NewsletterSignUp = () => {
                 />
               </div>
 
+              <div className="mt-6 text-left flex justify-start items-start w-full">
+                <p className="text-sm">*Required field</p>
+              </div>
               <button
                 disabled={!isValidEmail(formData.email)}
                 className={`${
