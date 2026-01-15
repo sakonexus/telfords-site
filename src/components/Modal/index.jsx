@@ -40,7 +40,7 @@ const Modal = ({ isOpen, onClose, children, notFullScreen }) => {
         ref={modalRef}
         className={`${notFullScreen ? 'h-fit' : 'h-full'}
           rounded-none md:rounded-md 
-          w-full  md:w-2xl md:h-auto 
+          w-full md:w-3xl md:h-auto 
           shadow-xl overflow-auto bg-cream md:mt-10 xs:mt-0
         `}
       >

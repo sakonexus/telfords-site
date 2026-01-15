@@ -58,8 +58,8 @@ const HomePage = ({
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
-        src={homeImgs[1].src}
-        alt="Smoking Lounge"
+        src={homeImgs[2].src}
+        alt="Smoking Lounge Area"
       />
     </div>
   );

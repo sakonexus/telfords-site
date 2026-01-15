@@ -10,15 +10,18 @@ import cigarBoxImage from '@assets/hero-slider/cigar-boxes.jpg';
 import telfordsLogo from '@assets/Telfords-Character-Logo.png';
 const logoImage = await getImage({ src: telfordsLogo });
 
-import loungeBoxesImage from '@assets/home/lounge-area-storage-boxes.jpg';
+import loungeBoxesImage1 from '@assets/home/lounge-area-storage-boxes.jpg';
 import cigarWallImage from '@assets/home/wall-of-cigars-1.jpg';
+
+import loungeAreaImage1 from '@assets/home/lounge-area-1.jpg'
 
 const storeImage = await getImage({ src: storefrontImage });
 const pipesImage = await getImage({ src: pipeWallImage });
 const cigarHeroImage = await getImage({ src: cigarBoxImage });
 
 const wallOfCigarsImage = await getImage({ src: cigarWallImage });
-const loungeImage = await getImage({ src: loungeBoxesImage });
+const loungeBoxesImage = await getImage({ src: loungeBoxesImage1 });
+const loungeAreaImage = await getImage({ src: loungeAreaImage1 });
 
 import img1 from '@assets/home/home-gallery/davidoff-cabinet-angle-1.jpg';
 import img2 from '@assets/home/home-gallery/placsncia-cigars.jpg';
@@ -136,5 +139,5 @@ const isFirstVisit = Astro.locals.isFirstVisit;
 ---
 
 <HomeLayout>
-	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[cigarHeroImage, storeImage, pipesImage]} isFirstVisit={isFirstVisit} client:load />
+	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeBoxesImage, loungeAreaImage]} heroImgs={[cigarHeroImage, storeImage, pipesImage]} isFirstVisit={isFirstVisit} client:load />
 </HomeLayout>

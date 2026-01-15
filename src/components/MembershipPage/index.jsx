@@ -3,7 +3,8 @@ import Headline from '@components/Headline';
 import BenefitsGrid from './BenefitsGrid';
 import PricingTable from './PricingTable';
 
-const MembershipPage = () => {
+const MembershipPage = ({ signImage, loungeImage }) => {
+  console.log('signImage', signImage);
   return (
     <section className="pb-12 flex w-full flex-col justify-center items-center">
       <div className="max-w-6xl px-4">
@@ -28,6 +29,9 @@ const MembershipPage = () => {
             smoking&nbsp;indoors.
           </p>
         </div>
+        <div className="max-w-6xl pb-12 flex justify-center items-center">
+          <img src={loungeImage.src} className="md:w-5/6 rounded-md w-full" />
+        </div>
       </div>
       <div className="w-full bg-section text-center">
         <h1 className="text-3xl font-Lora mt-12">Membership Benefits</h1>
@@ -36,6 +40,9 @@ const MembershipPage = () => {
       <div className="max-w-6xl px-4 text-center">
         <h1 className="text-3xl font-Lora mt-12">Membership Pricing</h1>
         <PricingTable />
+      </div>
+      <div className="max-w-6xl flex items-center justify-center px-4">
+        <img src={signImage.src} className="md:w-5/6 rounded-md w-full" />
       </div>
     </section>
   );

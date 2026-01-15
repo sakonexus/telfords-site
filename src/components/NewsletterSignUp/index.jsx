@@ -137,7 +137,7 @@ const NewsletterSignUp = () => {
                 }
                 className={`${
                   isValidEmail(formData.email) && formData.company.trim() == ''
-                    ? 'bg-[#8c2825] text-white hover:cursor-pointer hover:bg-[#a42f2b]'
+                    ? 'bg-brand-red text-white hover:cursor-pointer hover:bg-[#a42f2b]'
                     : 'bg-gray-400 text-text-primary hover:cursor-default'
                 } w-72 text-xl rounded-sm px-8 py-4 font-semibold mt-8 transition-all duration-300`}
               >
