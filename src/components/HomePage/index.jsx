@@ -25,9 +25,9 @@ const HomePage = ({
       <Headline>Smoking Lounge</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
-        Step into a world of refined comfort where rich leather chairs, smooth
-        jazz, and the warm glow of aged wood set the stage for meaningful
-        conversation and camaraderie. Access to our smoking lounge is available{' '}
+        Step into a world of comfort where rich leather chairs, smooth jazz, and
+        the warm glow of aged wood set the stage for meaningful conversation and
+        camaraderie. Access to our smoking lounge is available{' '}
         <span className="underline">exclusively with a membership</span>,
         offering a sophisticated retreat for savoring fine cigars, exploring new
         blends, and connecting with others who appreciate quality
