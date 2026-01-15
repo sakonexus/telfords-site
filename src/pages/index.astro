@@ -132,9 +132,9 @@ const optimizedHistoryGallery = await Promise.all(
 	})
 )
 
-
+const isFirstVisit = Astro.locals.isFirstVisit;
 ---
 
 <HomeLayout>
-	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[cigarHeroImage, storeImage, pipesImage]} client:load />
+	<HomePage logoImage={logoImage} historicImages={optimizedHistoryGallery} homeGallery={optimizedHomeGallery} homeImgs={[wallOfCigarsImage, loungeImage]} heroImgs={[cigarHeroImage, storeImage, pipesImage]} isFirstVisit={isFirstVisit} client:load />
 </HomeLayout>

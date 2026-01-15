@@ -7,7 +7,6 @@ import telfordsLogo from '@assets/Telfords-Character-Logo.png';
 import SiteBanner from '@components/SiteBanner'
 import { getSiteBanner } from '@src/lib/queries'
 import BannerMinimized from '@components/SiteBanner/BannerMinimized'
-import NewsletterModal from '@components/NewsletterSignUp/NewsletterModal'
 
 const logoImage = await getImage({ src: telfordsLogo });
 
@@ -24,8 +23,6 @@ const bannerisActive = bannerData.active && isWithinDateRange
 
 const bannerCookie = Astro.cookies.get('siteBanner');
 const bannerDisplay = bannerCookie ? bannerCookie.value === 'true' : true;
-
-const isFirstVisit = Astro.locals.isFirstVisit;
 ---
 <html lang="en">
   <head>
@@ -55,7 +52,6 @@ const isFirstVisit = Astro.locals.isFirstVisit;
     }
     <main class={`${Astro.url.pathname === "/" ? '' : 'pt-16 bg-cream'}`}>
       <slot {...({ 'set:props': { logoImage } })} />
-      {isFirstVisit && <NewsletterModal initialPopup={isFirstVisit} client:load />}
       <Footer client:load  />
     </main>
   </body>

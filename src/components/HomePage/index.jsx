@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Hero from './Hero';
 import TwoColumn from '@components/TwoColumn';
 import ContactModule from '@components/HomePage/ContactModule';
@@ -12,6 +12,8 @@ import MembershipImg1 from '@assets/home/membership-1.jpg?url';
 import MembershipImg2 from '@assets/home/membership-2.jpg?url';
 import RewardsCardImg from '@assets/home/vip-rewards-card.png?url';
 import NewsletterSignUp from '@components/NewsletterSignUp';
+import NewsletterModal from '@components/NewsletterSignUp/NewsletterModal';
+import { useSectionObserver } from '@hooks/intersectionObserver';
 
 const HomePage = ({
   heroImgs,
@@ -19,7 +21,24 @@ const HomePage = ({
   homeGallery,
   historicImages,
   logoImage,
+  isFirstVisit,
 }) => {
+  const forAllTastesRef = useRef(null);
+
+  const showNewsletterModal = useSectionObserver(forAllTastesRef, {
+    threshold: 0.75,
+    sectionId: 'for-all-tastes',
+    emitEvent: true,
+  });
+
+  const [hasShownNewsletter, setHasShownNewsletter] = useState(false);
+
+  useEffect(() => {
+    if (isFirstVisit && showNewsletterModal && !hasShownNewsletter) {
+      setHasShownNewsletter(true);
+    }
+  }, [isFirstVisit, showNewsletterModal, hasShownNewsletter]);
+
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
@@ -46,7 +65,11 @@ const HomePage = ({
   );
 
   const SelectionModule1 = (
-    <div className="flex flex-col md:ml-10 px-4 w-full xs:px-4">
+    <div
+      ref={forAllTastesRef}
+      id="for-all-tastes"
+      className="flex flex-col md:ml-10 px-4 w-full xs:px-4"
+    >
       <Headline>For All Tastes</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
@@ -239,6 +262,9 @@ const HomePage = ({
           </div>
         </div>
       </div>
+      {hasShownNewsletter && (
+        <NewsletterModal initialPopup={hasShownNewsletter} />
+      )}
     </div>
   );
 };

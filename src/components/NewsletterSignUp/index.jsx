@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   CheckCircleIcon,
   ExclamationTriangleIcon,
@@ -9,6 +9,7 @@ const NewsletterSignUp = () => {
     email: '',
     firstName: '',
     lastName: '',
+    company: '',
   });
 
   const [submitStatus, setSubmitStatus] = useState({
@@ -28,6 +29,11 @@ const NewsletterSignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.company.trim() !== '') {
+      console.warn('Bot detected. Submission ignored.');
+      return;
+    }
 
     const response = await fetch('/api/add-contact', {
       method: 'POST',
@@ -64,9 +70,7 @@ const NewsletterSignUp = () => {
   return (
     <div className="flex flex-col p-8 w-full mt-8 justify-center items-center xs:p-4">
       <div className="text-center w-full">
-        <h2 className="text-6xl font-MonteCarlo">
-          Sign up for our&nbsp;newsletter
-        </h2>
+        <h2 className="text-3xl font-Lora">Sign up for our&nbsp;newsletter</h2>
         <p className="mt-4">
           Stay informed about upcoming events, special offers, and&nbsp;more!
         </p>
@@ -82,6 +86,16 @@ const NewsletterSignUp = () => {
             className="flex flex-col justify-center items-center mt-8 w-full"
             onSubmit={handleSubmit}
           >
+            <input
+              type="text"
+              name="company"
+              tabIndex="-1"
+              autoComplete="off"
+              className="hidden"
+              aria-hidden="true"
+              value={formData.company}
+              onChange={handleChange}
+            />
             <div className="flex flex-col justify-center items-center w-full max-w-md">
               <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-4 w-full">
                 <label className="input-label self-end">Email*</label>
@@ -117,9 +131,12 @@ const NewsletterSignUp = () => {
                 <p className="text-sm">*Required field</p>
               </div>
               <button
-                disabled={!isValidEmail(formData.email)}
+                disabled={
+                  !isValidEmail(formData.email) ||
+                  formData.company.trim() !== ''
+                }
                 className={`${
-                  isValidEmail(formData.email)
+                  isValidEmail(formData.email) && formData.company.trim() == ''
                     ? 'bg-[#8c2825] text-white hover:cursor-pointer hover:bg-[#a42f2b]'
                     : 'bg-gray-400 text-text-primary hover:cursor-default'
                 } w-72 text-xl rounded-sm px-8 py-4 font-semibold mt-8 transition-all duration-300`}

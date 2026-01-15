@@ -1,27 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useSectionObserver } from '@hooks/intersectionObserver';
 
 const Hero = ({ heroImgs }) => {
-  const ref = useRef(null);
+  const heroRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Emit a custom event with section ID and visibility
-        window.dispatchEvent(
-          new CustomEvent('sectionVisible', {
-            detail: { id: 'hero', visible: entry.isIntersecting },
-          })
-        );
-      },
-      { threshold: 0.1 } // Trigger when 0% visible
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
+  useSectionObserver(heroRef, {
+    threshold: 0.9,
+    sectionId: 'hero',
+    emitEvent: true,
+  });
 
   const slides = [
     {
@@ -43,7 +32,7 @@ const Hero = ({ heroImgs }) => {
 
   return (
     <div
-      ref={ref}
+      ref={heroRef}
       className="relative w-full h-[100vh] xxs:max-h-[50vh] xs:max-h-[60vh] md:max-h-[80vh]"
     >
       <Swiper
