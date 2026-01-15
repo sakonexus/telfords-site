@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Hero from './Hero';
 import TwoColumn from '@components/TwoColumn';
 import ContactModule from '@components/HomePage/ContactModule';
@@ -11,6 +11,9 @@ import PipeClubImg from '@assets/home/pipe-club.jpg?url';
 import MembershipImg1 from '@assets/home/membership-1.jpg?url';
 import MembershipImg2 from '@assets/home/membership-2.jpg?url';
 import RewardsCardImg from '@assets/home/vip-rewards-card.png?url';
+import NewsletterSignUp from '@components/NewsletterSignUp';
+import NewsletterModal from '@components/NewsletterSignUp/NewsletterModal';
+import { useSectionObserver } from '@hooks/intersectionObserver';
 
 const HomePage = ({
   heroImgs,
@@ -18,15 +21,32 @@ const HomePage = ({
   homeGallery,
   historicImages,
   logoImage,
+  isFirstVisit,
 }) => {
+  const forAllTastesRef = useRef(null);
+
+  const showNewsletterModal = useSectionObserver(forAllTastesRef, {
+    threshold: 0.75,
+    sectionId: 'for-all-tastes',
+    emitEvent: true,
+  });
+
+  const [hasShownNewsletter, setHasShownNewsletter] = useState(false);
+
+  useEffect(() => {
+    if (isFirstVisit && showNewsletterModal && !hasShownNewsletter) {
+      setHasShownNewsletter(true);
+    }
+  }, [isFirstVisit, showNewsletterModal, hasShownNewsletter]);
+
   const LoungeModule1 = (
     <div className="flex flex-col px-4 w-full md:mr-10 xs:mr-0 xs:px-4">
       <Headline>Smoking Lounge</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
-        Step into a world of refined comfort where rich leather chairs, smooth
-        jazz, and the warm glow of aged wood set the stage for meaningful
-        conversation and camaraderie. Access to our smoking lounge is available{' '}
+        Step into a world of comfort where rich leather chairs, smooth jazz, and
+        the warm glow of aged wood set the stage for meaningful conversation and
+        camaraderie. Access to our smoking lounge is available{' '}
         <span className="underline">exclusively with a membership</span>,
         offering a sophisticated retreat for savoring fine cigars, exploring new
         blends, and connecting with others who appreciate quality
@@ -38,14 +58,18 @@ const HomePage = ({
     <div className="flex w-full items-center justify-center overflow-hidden rounded-md md:px-0 xs:px-4">
       <img
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
-        src={homeImgs[1].src}
-        alt="Smoking Lounge"
+        src={homeImgs[2].src}
+        alt="Smoking Lounge Area"
       />
     </div>
   );
 
   const SelectionModule1 = (
-    <div className="flex flex-col md:ml-10 px-4 w-full xs:px-4">
+    <div
+      ref={forAllTastesRef}
+      id="for-all-tastes"
+      className="flex flex-col md:ml-10 px-4 w-full xs:px-4"
+    >
       <Headline>For All Tastes</Headline>
       <div className="border-t border-slate-400 mt-0">&nbsp;</div>
       <p className="font-Lora sm:text-xl sm:mt-2 pl-6 leading-relaxed pb-6 md:pb-0 xs:text-md xs:mt-0">
@@ -161,7 +185,7 @@ const HomePage = ({
                 containerClasses=""
               />
             </section>
-            <section className="w-screen flex flex-col justify-center items-center py-12 mt-4">
+            <section className="w-full flex flex-col justify-center items-center py-12 mt-4">
               <Headline>Join the Community</Headline>
               <div className="w-full flex sm:flex-row max-w-6xl justify-between sm:gap-x-10 xs:flex-col xs:gap-y-8 xs:px-4 mt-10">
                 <MarketingModule>{MarketingModule1}</MarketingModule>
@@ -177,7 +201,7 @@ const HomePage = ({
               />
             </section>
           </div>
-          <section className="w-screen bg-section flex justify-center py-12 mt-12">
+          <section className="w-full bg-section flex justify-center py-12 mt-12">
             <div className="w-full flex sm:flex-row max-w-2xl sm:px-0 xs:px-4">
               <TwoColumn
                 module1={RewardsModule1}
@@ -197,13 +221,13 @@ const HomePage = ({
                 &nbsp;
               </div>
               <p className="font-Lora sm:text-xl sm:mt-2 xs:pl-0 md:pl-6 leading-relaxed pb-6 md:pb-0 md:ml-0 xs:ml-6 xs:text-md xs:mt-0">
-                Our shop is home to a curated collection of historic pipes,
-                cigars, and tobacco accessories, each telling a story of
-                craftsmanship, tradition, and refinement. From rare vintage
-                pieces to iconic designs that have shaped the industry, every
-                item on display offers a glimpse into the rich legacy of tobacco
-                culture. Explore these treasures and experience the heritage
-                that continues to inspire collectors and enthusiasts&nbsp;alike.
+                Our shop is home to a collection of historic pipes, cigars, and
+                tobacco accessories, each telling a story of craftsmanship,
+                tradition, and refinement. From rare vintage pieces to iconic
+                designs that have shaped the industry, every item on display
+                offers a glimpse into the rich legacy of tobacco culture.
+                Explore these treasures and experience the heritage that
+                continues to inspire collectors and enthusiasts&nbsp;alike.
               </p>
             </div>
             <div className="flex w-full mt-8 sm:mb-24 xs:mb-12">
@@ -220,7 +244,7 @@ const HomePage = ({
             </div>
           </div>
           <div className="w-full flex flex-col items-center">
-            <section className="flex w-full flex-col justify-center items-center pt-12 pb-24 max-w-6xl md:px-0 xs:px-4">
+            <section className="flex w-full flex-col justify-center items-center pt-12 pb-12 max-w-6xl md:px-0 xs:px-4">
               <div className="w-full">
                 <Headline>Tradition of Excellence</Headline>
               </div>
@@ -231,8 +255,16 @@ const HomePage = ({
               </div>
             </section>
           </div>
+          <div className="bg-section w-full flex flex-col items-center">
+            <section className="flex w-full flex-col justify-center items-center pb-12 max-w-6xl md:px-0 xs:px-4">
+              <NewsletterSignUp />
+            </section>
+          </div>
         </div>
       </div>
+      {hasShownNewsletter && (
+        <NewsletterModal initialPopup={hasShownNewsletter} />
+      )}
     </div>
   );
 };

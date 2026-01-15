@@ -4,11 +4,13 @@ import AboutPage from '@components/AboutPage'
 import { getImage } from 'astro:assets';
 import telfordsMural from '@assets/telfords-mural.jpg'
 import telfordsPic from '@assets/susan-and-brian-telford.jpg'
+import telfordsFamilyPic from '@assets/telfords-family.jpg'
 
 const telfordsMuralImage = await getImage({ src: telfordsMural });
 const telfordsOwnersImage = await getImage({ src: telfordsPic });
+const telfordsFamilyImage = await getImage({ src: telfordsFamilyPic });
 ---
 
 <PageLayout>
-	<AboutPage headerImg={telfordsMuralImage} ownersImg={telfordsOwnersImage} />
+	<AboutPage headerImg={telfordsMuralImage} ownersImg={telfordsOwnersImage} familyImg={telfordsFamilyImage} />
 </PageLayout>

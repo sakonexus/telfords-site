@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, notFullScreen }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -35,19 +35,19 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[111] flex items-center justify-start bg-black/50 backdrop-blur-sm flex-col">
+    <div className="fixed inset-0 z-[111] flex items-center justify-center bg-black/50 backdrop-blur-sm flex-col">
       <div
         ref={modalRef}
-        className="
+        className={`${notFullScreen ? 'h-fit' : 'h-full'}
           rounded-none md:rounded-md 
-          w-full h-full md:w-2xl md:h-auto 
+          w-full md:w-3xl md:h-auto 
           shadow-xl overflow-auto bg-cream md:mt-10 xs:mt-0
-        "
+        `}
       >
         <div className="w-full flex justify-end">
           <button
             onClick={onClose}
-            className="z-[99] hover:cursor-pointer transition-all bg-cream durtation-200 rounded-full p-1 m-2 absolute opacity-60 hover:opacity-100"
+            className="z-[999] hover:cursor-pointer transition-all bg-cream durtation-200 rounded-full p-1 m-2 absolute opacity-60 hover:opacity-100"
           >
             <XMarkIcon className="w-7 h-7 stroke-text-primary" />
           </button>

@@ -1,6 +1,6 @@
 import Headline from '@components/Headline';
 
-const AboutPage = ({ headerImg, ownersImg }) => {
+const AboutPage = ({ headerImg, ownersImg, familyImg }) => {
   return (
     <div className="flex flex-col w-full justify-center items-center mb-16 md:mt-[-2rem] xs:mt-0 ">
       <div className="flex w-full max-w-6xl">
@@ -18,8 +18,8 @@ const AboutPage = ({ headerImg, ownersImg }) => {
             Since 1970, Telford's Pipe & Cigar has grown into a
             2,730&#8209;square-foot haven for tobacco enthusiasts. For three
             generations, we have specialized in cigars, pipes, and luxury
-            tobacco accessories, offering a curated experience for connoisseurs
-            and newcomers&nbsp;alike.
+            tobacco accessories, offering a thoughtfully designed experience for
+            connoisseurs and newcomers&nbsp;alike.
             <br />
             <br />
             Our collection boasts over 2,000 cigars, more than 1,000 new and
@@ -60,6 +60,11 @@ const AboutPage = ({ headerImg, ownersImg }) => {
             <br />
             <br />
             <br className="md:visible md:block xs:hidden" />
+            <img
+              src={familyImg.src}
+              alt="Susan and Brian Telford"
+              className="md:float-left md:mr-12 md:mt-0 md:w-1/3 md:rounded-md xs:w-full xs:block xs:mt-0 xs:mb-6 xs:rounded-none"
+            />
             Our environment encourages enjoyment of tobacco both inside and out.
             Relax on the rocking chairs of our porch or sink into the oversized
             leather chairs by the fireplace in our&nbsp;lounge.

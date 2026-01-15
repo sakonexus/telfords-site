@@ -1,8 +1,16 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
 import MembershipPage from '@components/MembershipPage';
+
+import loungeAreaImage from '@assets/membership/lounge-area.jpg'
+import membershipSignImage from '@assets/membership/lounge-member-sign.jpg'
+
+import { getImage } from 'astro:assets';
+
+const loungeImage = await getImage({src: loungeAreaImage,  format: 'webp'})
+const signImage = await getImage({src: membershipSignImage,  format: 'webp'})
 ---
 
 <PageLayout>
-  <MembershipPage/>
+  <MembershipPage loungeImage={loungeImage} signImage={signImage} />
 </PageLayout>

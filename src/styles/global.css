@@ -24,6 +24,7 @@
   --breakpoint-xs: 360px;
   --breakpoint-xmd: 480px;
 
+  --color-brand-red: #8c2825;
   --color-cream: #efe6dc;
   --color-text-primary: #291d17;
   --color-text-secondary: #45352c;
@@ -132,4 +133,11 @@ h3 {
     transform: translateY(-70px) scale(1.2);
     opacity: 0;
   }
+}
+
+.input-label {
+  @apply text-lg text-text-primary font-semibold;
+}
+.input-field {
+  @apply bg-white text-text-primary border-2 border-hover-cream rounded-sm ml-2 px-2 py-1 outline-footer;
 }
