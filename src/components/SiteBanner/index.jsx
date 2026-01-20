@@ -36,6 +36,7 @@ const SiteBanner = ({ bannerData, initialBannerStatus, isHomePage }) => {
           <button
             className="rounded-full bg-white/50 p-1 z-99 hover:cursor-pointer"
             onClick={closeBanner}
+            aria-label="Close banner"
           >
             <XMarkIcon
               onClick={closeBanner}

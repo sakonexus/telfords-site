@@ -70,7 +70,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
     return () => {
       document.removeEventListener(
         'pointerdown',
-        handleClickOutsideProductMenu
+        handleClickOutsideProductMenu,
       );
     };
   }, [openProductMenu]);
@@ -193,8 +193,8 @@ const Navbar = ({ homePage = false, logoImg }) => {
                               index === 0
                                 ? 'rounded-tl-md rounded-tr-md'
                                 : index == link.submenu.length - 1
-                                ? 'rounded-bl-md rounded-br-md'
-                                : 'rounded-none'
+                                  ? 'rounded-bl-md rounded-br-md'
+                                  : 'rounded-none'
                             }`}
                           >
                             {sub.name}
@@ -217,7 +217,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                 >
                   {link.name}
                 </a>
-              )
+              ),
             )}
           </div>
 
@@ -225,7 +225,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
           <button
             className="md:hidden p-2"
             onClick={() => setMobileNavIsOpen(!mobileNavIsOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
           >
             <Bars3Icon
               className={`${
@@ -252,7 +252,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
               <div className="flex justify-end p-4 items-baseline absolute top-0 right-0">
                 <button
                   onClick={() => setMobileNavIsOpen(false)}
-                  aria-label="Close menu"
+                  aria-label="Close navigation menu"
                 >
                   <XMarkIcon className="h-6 w-6 stroke-text-muted" />
                 </button>

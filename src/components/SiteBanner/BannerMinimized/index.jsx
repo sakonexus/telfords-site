@@ -76,6 +76,7 @@ const BannerMinimized = ({ bannerData }) => {
             </div>
           </div>
           <button
+            aria-label="Toggle banner dialog"
             onClick={() => setOpenDialog((prev) => !prev)}
             className="flex justify-center items-center rounded-full bg-footer w-10 h-10 shadow-sm p-1 hover:cursor-pointer"
           >

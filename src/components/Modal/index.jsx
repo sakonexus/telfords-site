@@ -46,6 +46,7 @@ const Modal = ({ isOpen, onClose, children, notFullScreen }) => {
       >
         <div className="w-full flex justify-end">
           <button
+            aria-label="Close modal"
             onClick={onClose}
             className="z-[999] hover:cursor-pointer transition-all bg-cream durtation-200 rounded-full p-1 m-2 absolute opacity-60 hover:opacity-100"
           >
