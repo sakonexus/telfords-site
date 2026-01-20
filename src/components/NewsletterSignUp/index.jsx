@@ -131,6 +131,7 @@ const NewsletterSignUp = () => {
                 <p className="text-sm">*Required field</p>
               </div>
               <button
+                type="submit"
                 disabled={
                   !isValidEmail(formData.email) ||
                   formData.company.trim() !== ''
