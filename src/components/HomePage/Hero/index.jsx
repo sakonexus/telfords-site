@@ -49,6 +49,7 @@ const Hero = ({ heroImgs }) => {
               src={slide.src}
               alt={slide.alt}
               className="w-full h-full object-cover max-h-full"
+              loading="eager"
             />
           </SwiperSlide>
         ))}

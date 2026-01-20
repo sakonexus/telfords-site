@@ -30,7 +30,12 @@ const MembershipPage = ({ signImage, loungeImage }) => {
           </p>
         </div>
         <div className="max-w-6xl pb-12 flex justify-center items-center">
-          <img src={loungeImage.src} className="md:w-5/6 rounded-md w-full" />
+          <img
+            src={loungeImage.src}
+            className="md:w-5/6 rounded-md w-full"
+            alt="Telford's Pipe & Cigar lounge area"
+            loading="lazy"
+          />
         </div>
       </div>
       <div className="w-full bg-section text-center">
@@ -42,7 +47,12 @@ const MembershipPage = ({ signImage, loungeImage }) => {
         <PricingTable />
       </div>
       <div className="max-w-6xl flex items-center justify-center px-4">
-        <img src={signImage.src} className="md:w-5/6 rounded-md w-full" />
+        <img
+          src={signImage.src}
+          alt="Telford's Pipe & Cigar member sign"
+          className="md:w-5/6 rounded-md w-full"
+          loading="lazy"
+        />
       </div>
     </section>
   );

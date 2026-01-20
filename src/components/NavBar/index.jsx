@@ -138,6 +138,7 @@ const Navbar = ({ homePage = false, logoImg }) => {
                     : 'md:w-20 w-12'
                 } transition-all`}
                 alt="Telford's Pipe & Tobacco inc."
+                loading="eager"
               />
             </a>
             <div

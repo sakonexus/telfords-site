@@ -21,10 +21,20 @@ const Footer = () => {
           <div className="flex w-full items-center justify-center mt-6">
             <div className="flex flex-row bg-white p-4 sm:w-1/4 xs:w-5/6 gap-x-6 justify-center items-center rounded-md shadow-md border border-neutral-400">
               <div className="flex-1 flex items-center w-full">
-                <img src={DavidoffCert} className="max-w-full h-auto" />
+                <img
+                  src={DavidoffCert}
+                  alt="Davidoff Certified Retailer"
+                  className="max-w-full h-auto"
+                  loading="lazy"
+                />
               </div>
               <div className="flex-1 flex items-center w-full">
-                <img src={TAALogo} className="max-w-full h-auto" />
+                <img
+                  src={TAALogo}
+                  alt="Tobacco Association of America Member"
+                  className="max-w-full h-auto"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

@@ -60,6 +60,7 @@ const HomePage = ({
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
         src={homeImgs[2].src}
         alt="Smoking Lounge Area"
+        loading="lazy"
       />
     </div>
   );
@@ -86,6 +87,7 @@ const HomePage = ({
         className="w-full h-full object-cover transform transition-transform duration-300 md:hover:scale-110 origin-center rounded-md xs:hover:scale-100"
         src={homeImgs[0].src}
         alt="Cigar wall"
+        loading="lazy"
       />
     </div>
   );
@@ -115,6 +117,7 @@ const HomePage = ({
             src={MembershipImg1}
             alt="Lounge Member"
             className="rounded-md object-cover w-full aspect-[4/3]"
+            loading="lazy"
           />
         </div>
         <div className="relative w-full">
@@ -122,6 +125,7 @@ const HomePage = ({
             src={MembershipImg2}
             alt="Lounge Member"
             className="rounded-md object-cover [object-position:50%_30%] w-full aspect-[4/3]"
+            loading="lazy"
           />
         </div>
       </div>
@@ -145,6 +149,7 @@ const HomePage = ({
         className="w-full mt-4 rounded-md"
         src={PipeClubImg}
         alt="Pipe Club members enjoying themselves"
+        loading="lazy"
       />
     </div>
   );
@@ -163,7 +168,12 @@ const HomePage = ({
 
   const RewardsModule2 = (
     <div className="w-full flex items-center justify-center sm:ml-12 xs:ml-0 xs:mt-8">
-      <img src={RewardsCardImg} className="rounded-lg sm:w-full xs:w-72" />
+      <img
+        src={RewardsCardImg}
+        className="rounded-lg sm:w-full xs:w-72"
+        alt="Telford's VIP Rewards Card"
+        loading="lazy"
+      />
     </div>
   );
 

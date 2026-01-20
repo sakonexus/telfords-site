@@ -107,6 +107,7 @@ const GalleryModule = ({
                 alt={slide.alt}
                 onClick={() => imageSelect(index)}
                 className="w-full h-full object-cover max-h-full rounded-md cursor-pointer"
+                loading="lazy"
               />
             </SwiperSlide>
           ))}
@@ -136,6 +137,7 @@ const GalleryModule = ({
                     src={slide.src}
                     alt={slide.alt}
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                 </SwiperSlide>
               ))}
@@ -170,6 +172,7 @@ const GalleryModule = ({
                     src={slide.src}
                     alt={slide.alt}
                     className="w-full object-cover rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-opacity hover:cursor-pointer"
+                    loading="lazy"
                   />
                 </SwiperSlide>
               ))}

@@ -30,6 +30,7 @@ const EventPost = ({ eventData }) => {
             src={eventData.imageUrl}
             alt={eventData.title + '-image'}
             className="rounded-md w-full"
+            loading="lazy"
           />
         </div>
       )}
